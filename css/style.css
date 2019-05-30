@@ -33,7 +33,7 @@
  /* left: 0;
   top: 0;*/
   text-align: center;
-  top: 38%;
+  /*top: 38%;*/
   left: 0;
   right:0;
   transition: transform 1s ease-out, opacity 1s ease-out;
@@ -41,6 +41,9 @@
   transform: rotate(0deg) translate(0px, 0px) rotate(0deg);
   background-color: transparent;
   width:1349px;
+  margin-right: auto;
+  margin-left: auto;
+  
 }
 
 @keyframes debug-pulse {
