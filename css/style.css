@@ -2,7 +2,7 @@
 .ball {
   position: absolute;
   border-radius: 100%;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 .main-title {
   position: absolute;
