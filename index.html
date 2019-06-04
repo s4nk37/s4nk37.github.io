@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Sanket</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
@@ -10,40 +13,50 @@
 </head>
 <body>
 <!-- particles.js container -->
-<div id="particles-js" style="width: 100%;">
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-  <a class="navbar-brand" href="#">Sanket Patel</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-    </ul>
-  </div>
+<header>
+<nav class="navbar">
+<div  class="open">
+	<span class="cls"></span>
+	<span>
+		<ul class="sub-menu ">
+			<li>
+				<a href="#about" title="about">Sobre / About</a>
+			</li>
+			<li>
+				<a href="#skills" title="skills">Habilidades / Skills</a>
+			</li>
+			<li>
+				<a href="#jobs" title="jobs">Trabalhos / Jobs</a>
+			</li>
+			<li>
+				<a href="#contact" title="contact">Contato / Contact</a>
+			</li>
+		</ul>
+	</span>
+	<span class="cls"></span>
+</div>
 </nav>
-<img src="thanos.png" class="disintegration-target" style="height: auto; display: block; margin-left: auto;  margin-right: auto; width: 30%; margin-top: 20px;	 ">
-<h1 class="main-title disintegration-target">Click here to wipe out half of us.</h1>
+</header>
+<main style="width: 100%;">
 <h2 class="main-subtitle" style="padding-top: 100px;" >
   I'm <span
     class="typer"
     id="some-id"
     data-words="a noob.,a frontend developer.,a backend developer."
     data-delay="100"
-    data-colors="#08605F,#177E89,purple">
+    data-colors="#3CC157,#2AA7FF,#FCBC0F">
   </span>
   <span style="font-size:1.2em;" class="cursor" data-cursorDisplay="|" data-owner="some-id"></span><br><br>
-  <button type="button" class="btn btn-outline-primary">View More</button>
+ <!--  <button type="button" class="btn btn-outline-primary">View More</button> -->
 </h2>
-</div>
+</main>
+
+<footer class="footer sticky-bottom" style="padding-top: 550px; text-align: center;">
+  <div class="container">
+    <span class="text-muted">Made with <span style="color: #e25555;">&#9829;</span> by Sanket</span>
+  </div>
+</footer>
+
 <!-- Javascript --> 
 <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
@@ -51,6 +64,8 @@
 <script type="text/javascript" src="js/typer.js"></script>
 <script type="text/javascript" src="js/particles.min.js"></script>
 <script type="text/javascript" src="js/html2canvas.js"></script>
-<script  src="js/index.js"></script>
+<script  src="js/index.js">$( '#dl-menu' ).dlmenu({
+	animationClasses : { classin : 'animation-class-name', classout : 'animation-class-name' }
+});</script>
 </body>
 </html>
