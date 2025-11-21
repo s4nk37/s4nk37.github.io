@@ -59,6 +59,7 @@ const About: React.FC = () => {
                     </motion.div>
 
                     <motion.div
+                        id="skills"
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
