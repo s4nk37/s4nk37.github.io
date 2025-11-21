@@ -59,24 +59,12 @@ const Projects: React.FC = () => {
                             </p>
                             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
                                 {project.tags.map(tag => (
-                                    <span key={tag} style={{
-                                        fontSize: '0.8rem',
-                                        color: 'var(--primary-color)',
-                                        background: 'rgba(100, 108, 255, 0.1)',
-                                        padding: '0.25rem 0.75rem',
-                                        borderRadius: '20px',
-                                        fontFamily: 'var(--font-mono)'
-                                    }}>
+                                    <span key={tag} className="project-tag">
                                         {tag}
                                     </span>
                                 ))}
                             </div>
-                            <a href={project.link} style={{
-                                display: 'inline-block',
-                                color: 'white',
-                                fontWeight: '500',
-                                borderBottom: '1px solid var(--primary-color)'
-                            }}>
+                            <a href={project.link} className="project-link">
                                 View Project &rarr;
                             </a>
                         </div>

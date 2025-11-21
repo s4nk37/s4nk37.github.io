@@ -1,72 +1,130 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from '../UI/ThemeToggle';
 
-const Navbar: React.FC = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+interface NavbarProps {
+    theme: 'light' | 'dark';
+    toggleTheme: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setIsScrolled(window.scrollY > 50);
         };
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const navLinks = [
+        { name: 'Home', href: '#home' },
         { name: 'About', href: '#about' },
+        { name: 'Skills', href: '#skills' },
         { name: 'Projects', href: '#projects' },
         { name: 'Contact', href: '#contact' },
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-black/50 backdrop-blur-md' : 'py-6 bg-transparent'}`}
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                zIndex: 1000,
-                transition: 'all 0.3s ease',
-                padding: scrolled ? '1rem 0' : '1.5rem 0',
-                background: scrolled ? 'rgba(10, 10, 10, 0.8)' : 'transparent',
-                backdropFilter: scrolled ? 'blur(10px)' : 'none',
-                borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none'
-            }}>
-            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <a href="#" style={{ fontSize: '1.5rem', fontWeight: '700', fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
-                    Sanket<span style={{ color: 'var(--primary-color)' }}>.</span>
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+        >
+            <div className="navbar-container">
+                <a href="#" className="nav-logo gradient-text">
+                    Home
                 </a>
 
                 {/* Desktop Menu */}
-                <div style={{ display: 'flex', gap: '2rem' }} className="desktop-menu">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            style={{
-                                color: 'var(--text-secondary)',
-                                fontSize: '0.9rem',
-                                fontWeight: '500',
-                                transition: 'color 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-color)'}
-                            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
+                <div className="nav-desktop-menu">
+                    <div className="nav-links">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                className="nav-link"
+                                style={{ color: 'var(--text-secondary)' }}
+                            >
+                                {link.name}
+                                <span className="nav-link-indicator"></span>
+                            </a>
+                        ))}
+                    </div>
+                    <div className="nav-actions">
+                        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+                    </div>
                 </div>
 
-                {/* Mobile Toggle (Simple implementation for now) */}
-                <button
-                    className="mobile-toggle"
-                    onClick={() => setIsOpen(!isOpen)}
-                    style={{ display: 'none', color: 'var(--text-primary)', fontSize: '1.5rem' }}
-                >
-                    ☰
-                </button>
+                {/* Mobile Menu Button */}
+                <div className="nav-mobile-header">
+                    <div className="nav-mobile-actions">
+                        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+                    </div>
+                    <button
+                        className="mobile-menu-btn"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Toggle Menu"
+                        style={{ color: 'var(--text-primary)' }}
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            {isMobileMenuOpen ? (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            ) : (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                />
+                            )}
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="mobile-menu-overlay glass"
+                        style={{ backgroundColor: 'var(--bg-color)' }}
+                    >
+                        <div className="mobile-menu-content">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    className="mobile-nav-link"
+                                    style={{ color: 'var(--text-primary)' }}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.nav>
     );
 };
 

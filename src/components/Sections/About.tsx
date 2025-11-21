@@ -16,7 +16,7 @@ const About: React.FC = () => {
         { name: "Firebase", icon: <SiFirebase size={20} color="#FFCA28" /> },
         { name: "MobX", icon: <SiMobx size={20} color="#FF9955" /> },
         { name: "REST APIs", icon: <Globe size={20} color="#4f46e5" /> },
-        { name: "Socket.io", icon: <SiSocketdotio size={20} color="#ffffff" /> },
+        { name: "Socket.io", icon: <SiSocketdotio size={20} /> },
     ];
 
     return (
@@ -69,20 +69,8 @@ const About: React.FC = () => {
                             {skills.map((skill) => (
                                 <motion.div
                                     key={skill.name}
-                                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
-                                    style={{
-                                        padding: '0.75rem 1rem',
-                                        background: 'rgba(255,255,255,0.03)',
-                                        borderRadius: '12px',
-                                        border: '1px solid rgba(255,255,255,0.05)',
-                                        fontSize: '0.9rem',
-                                        color: 'var(--text-primary)',
-                                        fontFamily: 'var(--font-mono)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.75rem',
-                                        cursor: 'default'
-                                    }}
+                                    whileHover={{ scale: 1.05, backgroundColor: 'var(--surface-color)' }}
+                                    className="skill-card"
                                 >
                                     <span>{skill.icon}</span>
                                     {skill.name}
