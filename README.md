@@ -1,6 +1,25 @@
 # s4nk37.github.io
 
+<div align="center">
+  
+[![Visit Site](https://img.shields.io/badge/Visit%20Site-s4nk37.github.io-blue?style=for-the-badge&logo=github)](https://s4nk37.github.io)
+
+</div>
+
 Welcome to my personal portfolio website! This repository showcases my work as a Mobile Application Developer, featuring a sleek, modern design with smooth animations and responsive layouts.
+
+## 📸 Screenshots
+
+<div align="center">
+  
+### Desktop View
+![Desktop View](Macbook.png)
+
+### Mobile View
+<img src="iPhone-portrait.png" alt="Mobile View" width="300">
+
+</div>
+
 
 ## ✨ Features
 
