@@ -12,21 +12,14 @@ const Hero: React.FC = () => {
             justifyContent: 'center',
             paddingTop: 'var(--spacing-xl)'
         }}>
-            <div className="container" style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                gap: '4rem'
-            }}>
-                <div style={{ flex: 1, minWidth: '300px', textAlign: 'left' }}>
+            <div className="container hero-content">
+                <div className="hero-text">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         style={{
-                            fontSize: 'clamp(1.5rem, 5vw, 2rem)',
+                            fontSize: 'clamp(1.1rem, 5vw, 1.5rem)',
                             color: 'var(--primary-color)',
                             marginBottom: 'var(--spacing-sm)',
                             fontWeight: '500',
@@ -41,7 +34,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                         style={{
-                            fontSize: 'clamp(3rem, 10vw, 6rem)',
+                            fontSize: 'clamp(2.2rem, 9vw, 4.5rem)',
                             lineHeight: '1.1',
                             marginBottom: 'var(--spacing-md)',
                             letterSpacing: '-0.02em'
@@ -56,7 +49,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                         style={{
-                            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                            fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
                             color: 'var(--text-secondary)',
                             maxWidth: '600px',
                             marginBottom: 'var(--spacing-lg)'
@@ -84,7 +77,7 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    style={{ flex: 1, display: 'flex', justifyContent: 'center', minWidth: '300px', paddingLeft: '2rem' }}
+                    className="hero-visual"
                 >
                     <MobileAnimation />
                 </motion.div>

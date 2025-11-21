@@ -20,111 +20,72 @@ const MobileAnimation: React.FC = () => {
 
     return (
         <motion.svg
-            width="300"
-            height="480"
-            viewBox="-20 -20 340 520"
+            viewBox="-120 -20 440 520"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ display: 'inline-block', verticalAlign: 'middle' }}
+            style={{ width: '100%', height: 'auto', maxWidth: '400px', display: 'block' }}
         >
-            {/* Subtle Blueprint/Construction Lines */}
-            <motion.line
-                x1="-10" y1="10" x2="310" y2="10"
-                stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.3"
-                variants={drawVariants} custom={0} initial="hidden" animate="visible"
-            />
-            <motion.line
-                x1="-10" y1="470" x2="310" y2="470"
-                stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.3"
-                variants={drawVariants} custom={0.2} initial="hidden" animate="visible"
-            />
-            <motion.line
-                x1="10" y1="-10" x2="10" y2="490"
-                stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.3"
-                variants={drawVariants} custom={0.4} initial="hidden" animate="visible"
-            />
-            <motion.line
-                x1="290" y1="-10" x2="290" y2="490"
-                stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.3"
-                variants={drawVariants} custom={0.6} initial="hidden" animate="visible"
-            />
-
             {/* iPhone-style Frame */}
             <motion.rect
-                x="10" y="10" width="280" height="460" rx="45"
-                stroke={strokeColor} strokeWidth="3"
+                x="30" y="10" width="240" height="460" rx="45"
+                stroke={strokeColor} strokeWidth="1"
                 variants={drawVariants} custom={1} initial="hidden" animate="visible"
             />
 
-            {/* Notch / Dynamic Island Area */}
+            {/* Notch */}
             <motion.rect
-                x="100" y="25" width="100" height="25" rx="12.5"
+                x="110" y="25" width="80" height="20" rx="10"
                 stroke={strokeColor} strokeWidth="1.5"
                 variants={drawVariants} custom={1.5} initial="hidden" animate="visible"
             />
 
-            {/* Flutter Logo (Accurate Linear Geometry) */}
-            <motion.g transform="translate(90, 130) scale(0.9)">
-                {/* Top Wing */}
-                <motion.path
-                    d="M45 10 L75 40 L45 70"
-                    stroke={strokeColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                    variants={drawVariants} custom={2.0} initial="hidden" animate="visible"
+            {/* Code Block Overlay */}
+            <motion.g
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.5, duration: 0.8 }}
+            >
+                {/* Glass Background */}
+                <rect
+                    x="-100" y="100" width="290" height="180" rx="8"
+                    fill="var(--bg-color)" fillOpacity="0.9"
+                    stroke={strokeColor} strokeWidth="0.5"
                 />
-                {/* Bottom Wing & Triangle */}
-                <motion.path
-                    d="M45 80 L75 50 L105 80 L75 110 L45 80"
-                    stroke={strokeColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                    variants={drawVariants} custom={2.3} initial="hidden" animate="visible"
-                />
-                {/* Construction Lines for Logo */}
-                <motion.line
-                    x1="20" y1="10" x2="120" y2="10"
-                    stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" strokeOpacity="0.3"
-                    variants={drawVariants} custom={2.1} initial="hidden" animate="visible"
-                />
-                <motion.line
-                    x1="20" y1="110" x2="120" y2="110"
-                    stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" strokeOpacity="0.3"
-                    variants={drawVariants} custom={2.4} initial="hidden" animate="visible"
-                />
+
+                {/* Dart Code */}
+                <text x="-80" y="130" fontFamily="monospace" fontSize="10" fill={strokeColor} opacity="0.8">
+                    <tspan x="-80" dy="0">Widget build(BuildContext context) {'{'}</tspan>
+                    <tspan x="-70" dy="15">return Column(</tspan>
+                    <tspan x="-60" dy="15">children: [</tspan>
+                    <tspan x="-50" dy="15">Text("Everything is a widget 🧩"),</tspan>
+                    <tspan x="-50" dy="15">Text("Even my thoughts 🤔"),</tspan>
+                    <tspan x="-50" dy="15">Text("And yes, they also rebuild 🔄"),</tspan>
+                    <tspan x="-60" dy="15">],</tspan>
+                    <tspan x="-70" dy="15">);</tspan>
+                    <tspan x="-80" dy="15">{'}'}</tspan>
+                </text>
             </motion.g>
 
-            {/* React Native Logo (Linear/Outline) */}
-            <motion.g transform="translate(90, 280) scale(0.9)">
-                <motion.ellipse
-                    cx="60" cy="60" rx="55" ry="22" transform="rotate(30 60 60)"
-                    stroke={strokeColor} strokeWidth="1.5"
-                    variants={drawVariants} custom={3.0} initial="hidden" animate="visible"
-                />
-                <motion.ellipse
-                    cx="60" cy="60" rx="55" ry="22" transform="rotate(-30 60 60)"
-                    stroke={strokeColor} strokeWidth="1.5"
-                    variants={drawVariants} custom={3.2} initial="hidden" animate="visible"
-                />
-                <motion.ellipse
-                    cx="60" cy="60" rx="55" ry="22" transform="rotate(90 60 60)"
-                    stroke={strokeColor} strokeWidth="1.5"
-                    variants={drawVariants} custom={3.4} initial="hidden" animate="visible"
-                />
-                <motion.circle
-                    cx="60" cy="60" r="9"
-                    stroke={strokeColor} strokeWidth="1.5"
-                    variants={drawVariants} custom={3.6} initial="hidden" animate="visible"
-                />
-                {/* Construction Circle for Logo */}
-                <motion.circle
-                    cx="60" cy="60" r="65"
-                    stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" strokeOpacity="0.3"
-                    variants={drawVariants} custom={3.1} initial="hidden" animate="visible"
-                />
-            </motion.g>
+            {/* Dashatars Image */}
+            <motion.image
+                href="/Dashatars.png"
+                x="100" y="310" width="260" height="210"
+                preserveAspectRatio="xMidYMid contain"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2, duration: 0.8 }}
+            />
 
-            {/* Connecting Line */}
-            <motion.line
-                x1="150" y1="220" x2="150" y2="280"
-                stroke={strokeColor} strokeWidth="0.5" strokeDasharray="4 4"
-                variants={drawVariants} custom={2.8} initial="hidden" animate="visible"
+            {/* Decorative Elements */}
+            <motion.circle
+                cx="260" cy="80" r="40"
+                stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.2"
+                variants={drawVariants} custom={0.5} initial="hidden" animate="visible"
+            />
+            <motion.path
+                d="M-10 400 L100 500"
+                stroke={blueprintColor} strokeWidth="0.5" strokeOpacity="0.3"
+                variants={drawVariants} custom={0.8} initial="hidden" animate="visible"
             />
 
         </motion.svg>
