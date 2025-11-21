@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Code2 } from 'lucide-react';
 
 const Contact: React.FC = () => {
     return (
@@ -46,10 +46,18 @@ const Contact: React.FC = () => {
                     </a>
 
                     <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <a href="https://github.com/s4nk37" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }} className="hover:text-white">GitHub</a>
-                        <a href="https://www.linkedin.com/in/s4nk37/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }} className="hover:text-white">LinkedIn</a>
-                        <a href="https://x.com/s4nk37" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }} className="hover:text-white">X (Twitter)</a>
-                        <a href="https://stackoverflow.com/users/19433434/s4nk37" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }} className="hover:text-white">StackOverflow</a>
+                        <a href="https://github.com/s4nk37" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s', display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="hover:text-white">
+                            <Github size={20} /> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/s4nk37/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s', display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="hover:text-white">
+                            <Linkedin size={20} /> LinkedIn
+                        </a>
+                        <a href="https://x.com/s4nk37" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s', display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="hover:text-white">
+                            <Twitter size={20} /> X (Twitter)
+                        </a>
+                        <a href="https://stackoverflow.com/users/19433434/s4nk37" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s', display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="hover:text-white">
+                            <Code2 size={20} /> StackOverflow
+                        </a>
                     </div>
                 </motion.div>
 

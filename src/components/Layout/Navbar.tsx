@@ -35,7 +35,11 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             className={`navbar ${isScrolled ? 'scrolled' : ''}`}
         >
             <div className="navbar-container">
-                <a href="#" className="nav-logo gradient-text">
+                <a href="#" className="nav-logo gradient-text" style={{
+                    opacity: isScrolled ? 1 : 0,
+                    pointerEvents: isScrolled ? 'auto' : 'none',
+                    transition: 'opacity 0.3s ease'
+                }}>
                     Home
                 </a>
 

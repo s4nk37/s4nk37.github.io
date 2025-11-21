@@ -48,7 +48,9 @@ const Projects: React.FC = () => {
                         <div key={index} className="glass" style={{
                             padding: '2rem',
                             transition: 'transform 0.3s ease',
-                            cursor: 'pointer'
+                            cursor: 'pointer',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '12px'
                         }}
                             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
