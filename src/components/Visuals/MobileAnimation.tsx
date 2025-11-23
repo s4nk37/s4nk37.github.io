@@ -107,18 +107,30 @@ const MobileAnimation: React.FC = () => {
             />
 
             {/* Blueprint Background Grid */}
-            <g opacity="0.15">
-                {/* Horizontal grid lines */}
-                <line x1="-100" y1="50" x2="320" y2="50" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
-                <line x1="-100" y1="150" x2="320" y2="150" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
-                <line x1="-100" y1="250" x2="320" y2="250" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
-                <line x1="-100" y1="350" x2="320" y2="350" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
-                <line x1="-100" y1="450" x2="320" y2="450" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
+            <g opacity="0.25">
+                {/* Horizontal grid lines - denser */}
+                <line x1="-100" y1="20" x2="320" y2="20" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="60" x2="320" y2="60" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="100" x2="320" y2="100" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="140" x2="320" y2="140" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="180" x2="320" y2="180" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="220" x2="320" y2="220" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="260" x2="320" y2="260" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="300" x2="320" y2="300" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="340" x2="320" y2="340" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="380" x2="320" y2="380" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="420" x2="320" y2="420" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="-100" y1="460" x2="320" y2="460" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
 
-                {/* Vertical grid lines */}
-                <line x1="0" y1="-10" x2="0" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
-                <line x1="100" y1="-10" x2="100" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
-                <line x1="200" y1="-10" x2="200" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 4" />
+                {/* Vertical grid lines - denser */}
+                <line x1="-20" y1="-10" x2="-20" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="20" y1="-10" x2="20" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="60" y1="-10" x2="60" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="100" y1="-10" x2="100" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="140" y1="-10" x2="140" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="180" y1="-10" x2="180" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="220" y1="-10" x2="220" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1="260" y1="-10" x2="260" y2="490" stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="2 2" />
             </g>
 
             {/* Blueprint Dimension Lines */}
@@ -139,16 +151,6 @@ const MobileAnimation: React.FC = () => {
                 cx="260" cy="80" r="40"
                 stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.2"
                 variants={drawVariants} custom={0.5} initial="hidden" animate="visible"
-            />
-            <motion.circle
-                cx="-70" cy="300" r="30"
-                stroke={blueprintColor} strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.15"
-                variants={drawVariants} custom={0.6} initial="hidden" animate="visible"
-            />
-            <motion.path
-                d="M-10 400 L100 500"
-                stroke={blueprintColor} strokeWidth="0.5" strokeOpacity="0.3"
-                variants={drawVariants} custom={0.8} initial="hidden" animate="visible"
             />
 
         </motion.svg>
