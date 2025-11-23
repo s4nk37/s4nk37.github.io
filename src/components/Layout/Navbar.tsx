@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
-            className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+            className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}
         >
             <div className="navbar-container">
                 <a href="#" className="nav-logo gradient-text" style={{
@@ -129,11 +129,10 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="mobile-menu-overlay glass"
-                        style={{ backgroundColor: 'var(--bg-color)' }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="mobile-menu-overlay"
                     >
                         <div className="mobile-menu-content">
                             {navLinks.map((link) => (

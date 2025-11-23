@@ -331,12 +331,39 @@ button {
 
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    /* Changed to fixed to cover screen */
+    top: 0;
     left: 0;
     right: 0;
-    border-bottom: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 998;
+    /* Behind the navbar content */
+    padding-top: 80px;
+    /* Space for the header */
+    padding-bottom: 1.5rem;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .mobile-menu-overlay {
+    background: rgba(5, 5, 5, 0.7);
+}
+
+/* Navbar Content (Logo, Toggle) */
+.navbar-container {
+    position: relative;
+    z-index: 1000;
+    /* Above the overlay */
+}
+
+/* When menu is open, navbar parent becomes transparent so overlay provides the background */
+.navbar.mobile-menu-open {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: none !important;
 }
 
 .mobile-menu-content {
@@ -391,24 +418,43 @@ button {
 }
 
 /* Skill Cards */
+/* Skill Cards - Floating 3D Tiles */
 .skill-card {
-    padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-primary);
     font-family: var(--font-mono);
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     cursor: default;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy spring transition */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='light'] .skill-card {
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme='light'] .skill-card:hover {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Project Tags */
