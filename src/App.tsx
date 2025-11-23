@@ -5,6 +5,7 @@ import Hero from './components/Sections/Hero';
 import About from './components/Sections/About';
 import Projects from './components/Sections/Projects';
 import Contact from './components/Sections/Contact';
+import Articles from './components/Sections/Articles';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -29,6 +30,7 @@ function App() {
         <Hero />
         <About />
         <Projects />
+        <Articles />
         <Contact />
       </main>
       <Footer />
