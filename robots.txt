@@ -8,5 +8,4 @@ Sitemap: https://s4nk37.github.io/sitemap.xml
 # Disallow crawling of these paths
 Disallow: /node_modules/
 Disallow: /.git/
-Disallow: /dist/
 Disallow: *.json
