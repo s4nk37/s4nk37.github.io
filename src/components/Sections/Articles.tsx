@@ -14,6 +14,14 @@ interface Article {
 const Articles: React.FC = () => {
     const articles: Article[] = [
         {
+            title: "Understanding Types of Programming Languages: A Beginner-Friendly Guide to How Code Really Works",
+            excerpt: "A beginner-friendly guide explaining the different types of programming languages and how code actually works under the hood.",
+            date: "Nov 25, 2025",
+            readTime: "3 min read",
+            url: "https://s4nk37.medium.com/understanding-types-of-programming-languages-a-beginner-friendly-guide-to-how-code-really-works-dbedf5bf3b7a",
+            tags: ["Programming", "Beginner Guide", "Computer Science"]
+        },
+        {
             title: "How Mobile Apps Run Internally: JIT, AOT, Machine Code, VMs",
             excerpt: "A deep dive into the internals of mobile app execution, exploring JIT compilation, AOT compilation, machine code, and virtual machines across Kotlin, Swift, Flutter, and React Native.",
             date: "Nov 2025",
