@@ -14,7 +14,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           framer: ['framer-motion'],
-          lottie: ['lottie-web'],
+          lottie: ['lottie-react'],
         },
       },
     },
