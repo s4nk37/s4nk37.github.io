@@ -6,18 +6,19 @@ const Contact: React.FC = () => {
     return (
         <section id="contact" className="section" style={{ textAlign: 'center' }}>
             <div className="container">
-                <motion.h2
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    style={{
-                        fontSize: '2.5rem',
-                        marginBottom: 'var(--spacing-md)'
-                    }}
                 >
-                    Let's <span className="gradient-text">Connect</span>
-                </motion.h2>
+                    <div className="section-title-block center">
+                        <h2 className="section-title">
+                            Let's Connect
+                        </h2>
+                        <div className="section-title-underline" />
+                    </div>
+                </motion.div>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}

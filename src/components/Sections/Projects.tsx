@@ -79,32 +79,35 @@ const Projects: React.FC = () => {
             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
         >
-            {/* Logo in top-right corner */}
-            {project.logo && (
-                <div style={{
-                    position: 'absolute',
-                    top: '1.5rem',
-                    right: '1.5rem'
+            {/* Header: Title and Logo */}
+            <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                marginBottom: '1.5rem',
+                gap: '1rem'
+            }}>
+                <h3 style={{
+                    fontSize: '1.5rem',
+                    fontWeight: 700,
+                    margin: 0,
+                    flex: 1
                 }}>
+                    {project.title}
+                </h3>
+                {project.logo && (
                     <img
                         src={project.logo}
                         alt={`${project.title} logo`}
                         style={{
                             height: '40px',
                             width: 'auto',
-                            objectFit: 'contain'
+                            objectFit: 'contain',
+                            flexShrink: 0
                         }}
                     />
-                </div>
-            )}
-
-            <h3 style={{
-                marginBottom: '1rem',
-                fontSize: '1.5rem',
-                paddingRight: project.logo ? '60px' : '0' // Space for logo
-            }}>
-                {project.title}
-            </h3>
+                )}
+            </div>
 
             {project.description && (
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: '1.6' }}>
@@ -170,24 +173,16 @@ const Projects: React.FC = () => {
     return (
         <section id="projects" className="section">
             <div className="container">
-                <h2 style={{
-                    fontSize: '2.5rem',
-                    marginBottom: 'var(--spacing-lg)',
-                    textAlign: 'center'
-                }}>
-                    Featured <span className="gradient-text">Work</span>
-                </h2>
+                <div className="section-title-block">
+                    <h2 className="section-title">
+                        Featured Work
+                    </h2>
+                    <div className="section-title-underline" />
+                </div>
 
                 {/* Professional Work */}
                 {professionalProjects.length > 0 && (
                     <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-                        <h3 style={{
-                            fontSize: '1.75rem',
-                            marginBottom: '2rem',
-                            fontFamily: 'var(--font-display)'
-                        }}>
-                            Professional <span className="gradient-text">Work</span>
-                        </h3>
                         <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -201,13 +196,22 @@ const Projects: React.FC = () => {
                 {/* Personal Projects */}
                 {personalProjects.length > 0 && (
                     <div>
-                        <h3 style={{
-                            fontSize: '1.75rem',
-                            marginBottom: '2rem',
-                            fontFamily: 'var(--font-display)'
-                        }}>
-                            Personal <span className="gradient-text">Projects</span>
-                        </h3>
+                        <div style={{ marginBottom: '2.5rem' }}>
+                            <h3 style={{
+                                fontSize: '1.5rem',
+                                marginBottom: '0.5rem',
+                                fontWeight: 600,
+                                color: 'var(--text-primary)'
+                            }}>
+                                Personal Projects
+                            </h3>
+                            <div style={{
+                                width: '60px',
+                                height: '2px',
+                                background: 'var(--primary-color)',
+                                borderRadius: '2px'
+                            }} />
+                        </div>
                         <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',

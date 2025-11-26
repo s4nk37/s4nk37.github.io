@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, Calendar } from 'lucide-react';
 
 const Experience: React.FC = () => {
     const experiences = [
@@ -7,72 +9,139 @@ const Experience: React.FC = () => {
             role: "Software Development Engineer I",
             period: "Jan 2024 - Feb 2025",
             location: "Remote Bengaluru",
-            description: [
-                "Contributed to the end-to-end development and migration of LesGo's consumer app, working across Flutter and React Native.",
-                "Developed key modules: Offers, Reservation, Search, AI chatbots, social systems, and real-time chat.",
-                "Integrated Razorpay, Firebase, Sentry, and Amplitude.",
-                "Resolved performance issues, improved load times, and managed production releases on Play Store and App Store."
-            ]
+            index: "01"
         },
         {
             company: "Tecocraft Infusion Pvt Ltd",
             role: "Jr. Flutter Developer",
             period: "Aug 2023 - Nov 2023",
             location: "Surat, Gujarat",
-            description: [
-                "Contributed to Fitnex and Flybagz projects focusing on UI development and integration.",
-                "Built pixel-perfect responsive UIs and fixed FCM/Deeplinking issues.",
-                "Enhanced Flybagz by improving SDK pagination and fixing automated chat message issues.",
-                "Collaborated with designers and backend engineers to deliver production-ready applications."
-            ]
+            index: "02"
         }
     ];
 
     return (
         <section id="experience" className="section">
             <div className="container">
-                <h2 style={{
-                    fontSize: '2.5rem',
-                    marginBottom: 'var(--spacing-lg)',
-                    textAlign: 'center'
-                }}>
-                    Professional <span className="gradient-text">Experience</span>
-                </h2>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    style={{ marginBottom: '2rem' }}
+                >
+                    <div className="section-title-block">
+                        <h2 className="section-title">
+                            Professional Experience
+                        </h2>
+                        <div className="section-title-underline" />
+                    </div>
+                </motion.div>
 
-                <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                    {experiences.map((exp, index) => (
-                        <div key={index} className="glass" style={{
-                            padding: '2rem',
-                            marginBottom: '2rem',
-                            position: 'relative'
-                        }}>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '2rem',
+                    position: 'relative'
+                }}>
+                    {experiences.map((exp, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.2 }}
+                            style={{
+                                padding: '2.5rem',
+                                borderRadius: '24px',
+                                background: 'var(--surface-color)',
+                                boxShadow: '0 25px 70px rgba(0,0,0,0.07)',
+                                border: '1px solid var(--border-color)',
+                                position: 'relative',
+                                overflow: 'hidden'
+                            }}
+                        >
+
+                            {/* Left side - Role and Company */}
                             <div style={{
                                 display: 'flex',
-                                justifyContent: 'space-between',
-                                flexWrap: 'wrap',
-                                marginBottom: '1rem',
-                                gap: '0.5rem'
+                                flexDirection: 'column',
+                                gap: '1.5rem'
                             }}>
-                                <div>
-                                    <h3 style={{ fontSize: '1.5rem', color: 'var(--primary-color)' }}>{exp.role}</h3>
-                                    <h4 style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>{exp.company}</h4>
-                                </div>
-                                <div style={{ textAlign: 'right' }}>
-                                    <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: '0.9rem' }}>{exp.period}</p>
-                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{exp.location}</p>
-                                </div>
-                            </div>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    gap: '2rem',
+                                    flexWrap: 'wrap'
+                                }}>
+                                    <div style={{ minWidth: '260px' }}>
+                                        <div style={{
+                                            fontFamily: 'var(--font-mono)',
+                                            fontSize: '0.9rem',
+                                            letterSpacing: '0.4em',
+                                            color: 'var(--text-secondary)',
+                                            textTransform: 'uppercase',
+                                            marginBottom: '0.75rem'
+                                        }}>
+                                            {exp.index}
+                                        </div>
+                                        <h3 style={{
+                                            fontSize: '1.6rem',
+                                            fontWeight: 600,
+                                            color: 'var(--text-primary)',
+                                            marginBottom: '0.5rem',
+                                            lineHeight: 1.3
+                                        }}>
+                                            {exp.role}
+                                        </h3>
+                                        <p style={{
+                                            fontSize: '1rem',
+                                            letterSpacing: '0.08em',
+                                            textTransform: 'uppercase',
+                                            fontWeight: 600,
+                                            margin: 0,
+                                            color: 'var(--text-secondary)'
+                                        }}>
+                                            {exp.company}
+                                        </p>
+                                    </div>
 
-                            <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', color: 'var(--text-secondary)' }}>
-                                {exp.description.map((item, i) => (
-                                    <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>
-                                ))}
-                            </ul>
-                        </div>
+                                    {/* Right side - Date and Location */}
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '0.75rem',
+                                        minWidth: '200px'
+                                    }}>
+                                        <div style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
+                                            color: 'var(--text-secondary)',
+                                            fontSize: '0.95rem'
+                                        }}>
+                                            <Calendar size={16} />
+                                            <span>{exp.period}</span>
+                                        </div>
+                                        <div style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
+                                            color: 'var(--text-secondary)',
+                                            fontSize: '0.95rem'
+                                        }}>
+                                            <MapPin size={16} />
+                                            <span>{exp.location}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

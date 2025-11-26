@@ -8,6 +8,7 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+    const [activeSection, setActiveSection] = useState('home');
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,15 +17,34 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             setIsScrolled(window.scrollY > 50);
         };
 
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            observer.disconnect();
+        };
     }, []);
 
     const navLinks = [
-        { name: 'About', href: '#about' },
         { name: 'Skills', href: '#skills' },
         { name: 'Projects', href: '#projects' },
         { name: 'Articles', href: '#articles' },
+        { name: 'Experience', href: '#experience' },
+        { name: 'About', href: '#about' },
         { name: 'Contact', href: '#contact' },
     ];
 
@@ -51,11 +71,15 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="nav-link"
-                                style={{ color: 'var(--text-secondary)' }}
+                                className={`nav-link ${activeSection === link.href.substring(1) ? 'active' : ''}`}
+                                style={{
+                                    color: activeSection === link.href.substring(1) ? 'var(--primary-color)' : 'var(--text-secondary)'
+                                }}
                             >
                                 {link.name}
-                                <span className="nav-link-indicator"></span>
+                                <span className="nav-link-indicator" style={{
+                                    width: activeSection === link.href.substring(1) ? '100%' : '0'
+                                }}></span>
                             </a>
                         ))}
                     </div>
@@ -166,7 +190,10 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                                     key={link.name}
                                     href={link.href}
                                     className="mobile-nav-link"
-                                    style={{ color: 'var(--text-primary)' }}
+                                    style={{
+                                        color: activeSection === link.href.substring(1) ? 'var(--primary-color)' : 'var(--text-primary)',
+                                        fontWeight: activeSection === link.href.substring(1) ? 600 : 500
+                                    }}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {link.name}

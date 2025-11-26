@@ -1,84 +1,68 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-    SiReact, SiTypescript, SiPython, SiFastapi, SiFirebase, SiMobx, SiSocketdotio
-} from 'react-icons/si';
-import { Globe } from 'lucide-react';
-
+import { MapPin, Briefcase, Code, GraduationCap } from 'lucide-react';
 
 const About: React.FC = () => {
-    const skills = [
-        { name: "Flutter", icon: <img src="/icons/flutter.svg" alt="Flutter" width="20" height="20" /> },
-        { name: "React Native", icon: <SiReact size={20} color="#61DAFB" /> },
-        { name: "Dart", icon: <img src="/icons/dart.svg" alt="Dart" width="20" height="20" /> },
-        { name: "TypeScript", icon: <SiTypescript size={20} color="#3178C6" /> },
-        { name: "Python", icon: <SiPython size={20} color="#3776AB" /> },
-        { name: "FastAPI", icon: <SiFastapi size={20} color="#009688" /> },
-        { name: "Firebase", icon: <SiFirebase size={20} color="#FFCA28" /> },
-        { name: "MobX", icon: <SiMobx size={20} color="#FF9955" /> },
-        { name: "REST APIs", icon: <Globe size={20} color="#4f46e5" /> },
-        { name: "Socket.io", icon: <SiSocketdotio size={20} /> },
-    ];
-
     return (
         <section id="about" className="section">
             <div className="container">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    style={{
-                        fontSize: '2.5rem',
-                        marginBottom: 'var(--spacing-lg)',
-                        textAlign: 'center'
-                    }}
-                >
-                    About <span className="gradient-text">Me</span>
-                </motion.h2>
+                <div className="section-title-block">
+                    <h2 className="section-title">
+                        About Me
+                    </h2>
+                    <div className="section-title-underline" />
+                </div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '4rem',
-                    alignItems: 'start'
-                }}>
+                <div className="about-content">
+                    {/* Left Side - Headline */}
                     <motion.div
-                        className="glass"
-                        style={{ padding: '2rem' }}
                         initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <h3 className="about-headline">
+                            Building digital experiences with <br />
+                            <span className="gradient-text">precision & passion.</span>
+                        </h3>
+                        <p className="about-text">
+                            I'm a Mobile Application Developer with <strong>1.5+ years of experience</strong>, specializing in <strong>Flutter</strong> and <strong>React Native</strong>.
+                            I craft scalable, high-performance applications with clean architecture and seamless user experiences.
+                        </p>
+                        <p className="about-text">
+                            Based in <strong>Surat, Gujarat</strong>, I love solving complex problems and turning ideas into reality.
+                            My focus is on creating intuitive, user-centric mobile solutions that drive engagement and business growth.
+                        </p>
+                    </motion.div>
+
+                    {/* Right Side - Stats & Details */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
-                            Mobile Application Developer with 1.5 years of experience in Flutter and React Native, specializing in building scalable, high-quality applications with clean architecture and seamless user experiences.
-                        </p>
-                        <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
-                            Skilled in migrating codebases, integrating AI-driven features, and optimizing app performance. Proficient in Firebase, REST APIs, MobX, TypeScript, and Dart.
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        id="skills"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                    >
-                        <h3 style={{ marginBottom: '1.5rem', fontSize: '1.5rem', fontFamily: 'var(--font-mono)' }}>
-                            Technical <span className="gradient-text">Skills</span>
-                        </h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '1rem' }}>
-                            {skills.map((skill) => (
-                                <motion.div
-                                    key={skill.name}
-                                    className="skill-card"
-                                >
-                                    <span>{skill.icon}</span>
-                                    {skill.name}
-                                </motion.div>
-                            ))}
+                        <div className="stat-grid">
+                            <StatCard
+                                icon={<Briefcase size={24} />}
+                                label="Experience"
+                                value="1.5+ Years"
+                            />
+                            <StatCard
+                                icon={<MapPin size={24} />}
+                                label="Location"
+                                value="Surat, India"
+                            />
+                            <StatCard
+                                icon={<Code size={24} />}
+                                label="Stack"
+                                value="Mobile Dev"
+                            />
+                            <StatCard
+                                icon={<GraduationCap size={24} />}
+                                label="Education"
+                                value="B.Tech IT"
+                            />
                         </div>
                     </motion.div>
                 </div>
@@ -86,5 +70,13 @@ const About: React.FC = () => {
         </section>
     );
 };
+
+const StatCard: React.FC<{ icon: React.ReactNode; label: string; value: string }> = ({ icon, label, value }) => (
+    <div className="stat-card">
+        <div className="stat-icon">{icon}</div>
+        <span className="stat-value">{value}</span>
+        <span className="stat-label">{label}</span>
+    </div>
+);
 
 export default About;

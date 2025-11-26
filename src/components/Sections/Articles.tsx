@@ -40,10 +40,31 @@ const Articles: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="section-title">
-                        Latest <span className="gradient-text">Articles</span>
-                    </h2>
+                    <div className="section-title-block">
+                        <h2 className="section-title">
+                            Latest Articles
+                        </h2>
+                        <div className="section-title-underline" />
+                    </div>
                 </motion.div>
+
+                <div style={{
+                    marginTop: '1.5rem',
+                    padding: '1.5rem',
+                    borderLeft: '4px solid var(--primary-color)',
+                    background: 'rgba(128, 128, 128, 0.05)',
+                    borderRadius: '0 8px 8px 0'
+                }}>
+                    <p style={{
+                        color: 'var(--text-secondary)',
+                        fontSize: '1rem',
+                        lineHeight: 1.7,
+                        margin: 0,
+                        fontStyle: 'italic'
+                    }}>
+                        These articles come from things I learned, broke, fixed, Googled, got curious about, or asked AI while coding. They’re basically my personal notes—written to help me remember and to help the community too.
+                    </p>
+                </div>
 
                 <div style={{
                     display: 'grid',
@@ -95,7 +116,7 @@ const Articles: React.FC = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

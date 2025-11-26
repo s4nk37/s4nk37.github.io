@@ -125,7 +125,40 @@ button {
 }
 
 .section {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
+}
+
+.section-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+    align-items: flex-start;
+}
+
+.section-title-block.center {
+    text-align: center;
+    align-items: center;
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.section-title-underline {
+    width: 64px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 999px;
+}
+
+.section-title-block.center .section-title-underline {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .gradient-text {
@@ -555,13 +588,7 @@ button {
         padding-bottom: 2rem !important;
     }
 
-    /* Mobile: Style Technical Skills title like About Me */
-    #skills h3 {
-        font-size: 2.5rem !important;
-        margin-bottom: var(--spacing-lg) !important;
-        text-align: center !important;
-        font-family: var(--font-display) !important;
-    }
+
 
     /* Reduce spacing between sections on mobile */
     .section {
@@ -701,4 +728,84 @@ button {
 
 .article-link:hover svg {
     transform: translateX(2px);
+}
+
+/* About Section Styles */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-headline {
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.about-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-headline {
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
 }

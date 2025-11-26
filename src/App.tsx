@@ -4,6 +4,8 @@ import Footer from './components/Layout/Footer';
 import Hero from './components/Sections/Hero';
 import About from './components/Sections/About';
 import Projects from './components/Sections/Projects';
+import Skills from './components/Sections/Skills';
+import Experience from './components/Sections/Experience';
 import Contact from './components/Sections/Contact';
 import Articles from './components/Sections/Articles';
 
@@ -11,7 +13,7 @@ function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = localStorage.getItem('theme');
     if (saved) return saved as 'light' | 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return 'light'; // Always default to light theme
   });
 
   useEffect(() => {
@@ -28,9 +30,11 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
-        <About />
+        <Skills />
         <Projects />
         <Articles />
+        <Experience />
+        <About />
         <Contact />
       </main>
       <Footer />
