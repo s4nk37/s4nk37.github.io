@@ -8,6 +8,7 @@ import Skills from './components/Sections/Skills';
 import Experience from './components/Sections/Experience';
 import Contact from './components/Sections/Contact';
 import Articles from './components/Sections/Articles';
+import Loader from './components/UI/Loader';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -26,19 +27,22 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <Skills />
-        <Projects />
-        <Articles />
-        <Experience />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Loader />
+      <div className="app">
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <main>
+          <Hero />
+          <Skills />
+          <Projects />
+          <Articles />
+          <Experience />
+          <About />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 

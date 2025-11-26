@@ -46,7 +46,7 @@ const Skills: React.FC = () => {
                         {/* Mobile Stack */}
                         <div className="skill-category">
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                                <div style={{ padding: '0.5rem', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '12px', color: '#3b82f6' }}>
+                                <div style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '12px', color: '#3b82f6' }}>
                                     <Smartphone size={24} />
                                 </div>
                                 <h3 style={{ fontSize: '1.4rem', fontWeight: 600 }}>Mobile Stack</h3>
@@ -61,7 +61,7 @@ const Skills: React.FC = () => {
                         {/* Web & Backend */}
                         <div className="skill-category">
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                                <div style={{ padding: '0.5rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '12px', color: '#10b981' }}>
+                                <div style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '12px', color: '#10b981' }}>
                                     <Layout size={24} />
                                 </div>
                                 <h3 style={{ fontSize: '1.4rem', fontWeight: 600 }}>Web & Backend</h3>
@@ -77,7 +77,7 @@ const Skills: React.FC = () => {
                         {/* Tools & Cloud */}
                         <div className="skill-category">
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                                <div style={{ padding: '0.5rem', background: 'rgba(245, 158, 11, 0.1)', borderRadius: '12px', color: '#f59e0b' }}>
+                                <div style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(245, 158, 11, 0.1)', borderRadius: '12px', color: '#f59e0b' }}>
                                     <Terminal size={24} />
                                 </div>
                                 <h3 style={{ fontSize: '1.4rem', fontWeight: 600 }}>Tools & Cloud</h3>
@@ -106,9 +106,12 @@ const SkillCard: React.FC<{ icon: React.ReactNode; name: string; variants?: any 
             alignItems: 'center',
             gap: '0.75rem',
             padding: '0.75rem 1rem',
-            background: 'var(--surface-color)',
+            background: `
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.01'/%3E%3C/svg%3E"),
+                var(--surface-color)
+            `,
             borderRadius: '12px',
-            border: '1px solid var(--border-color)',
+            border: '0.5px solid rgba(0, 0, 0, 0.04)',
             cursor: 'default',
             transition: 'border-color 0.3s ease'
         }}
@@ -116,7 +119,7 @@ const SkillCard: React.FC<{ icon: React.ReactNode; name: string; variants?: any 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {icon}
         </div>
-        <span style={{ fontWeight: 500, fontSize: '0.9rem' }}>{name}</span>
+        <span style={{ fontWeight: 500, fontSize: '0.9rem', fontFamily: 'var(--font-mono)' }}>{name}</span>
     </motion.div>
 );
 
