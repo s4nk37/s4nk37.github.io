@@ -695,6 +695,201 @@ button {
     margin-top: 0.5rem;
 }
 
+/* Spotlight Grid */
+.spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .spotlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .spotlight-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.spotlight-card {
+    position: relative;
+    border-radius: 16px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+[data-theme='light'] .spotlight-card {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.spotlight-card:hover {
+    transform: translateY(-2px);
+}
+
+.spotlight-glow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: var(--spotlight-opacity, 0);
+    transition: opacity 0.3s;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.1),
+            transparent 40%);
+    z-index: 1;
+}
+
+[data-theme='light'] .spotlight-glow {
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(0, 0, 0, 0.05),
+            transparent 40%);
+}
+
+.spotlight-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Skill Styles within Spotlight */
+.skill-category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-category-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary-color);
+}
+
+[data-theme='light'] .skill-category-icon {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.skill-category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.skill-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
+    border: 1px solid transparent;
+    /* Fallback/Spacer */
+}
+
+/* Inner Background (The "Card") */
+.skill-pill::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    /* Border width */
+    background: #121212;
+    /* Match card/bg color */
+    border-radius: 999px;
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+[data-theme='light'] .skill-pill::after {
+    background: #f3f4f6;
+}
+
+/* Animated Border Gradient */
+.skill-pill::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent,
+            transparent,
+            transparent,
+            var(--primary-color));
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-pill:hover {
+    color: #ffffff;
+    /* transform: translateY(-2px); Removed lift effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='light'] .skill-pill:hover {
+    color: #000000;
+}
+
+[data-theme='light'] .skill-pill {
+    color: #000000;
+    /* Dark text in light mode */
+}
+
+.skill-pill:hover::before {
+    opacity: 1;
+    animation: spin 3s linear infinite;
+}
+
+.skill-pill:hover::after {
+    background: #000000;
+    /* Darker inner bg on hover for contrast */
+}
+
+[data-theme='light'] .skill-pill:hover::after {
+    background: #ffffff;
+}
+
 .article-link {
     display: inline-flex;
     align-items: center;

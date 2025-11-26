@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
                         }}
                     >
                         Mobile Application <br />
-                        <span className="gradient-text">Developer</span>
+                        Developer
                     </motion.h1>
 
                     <motion.p
