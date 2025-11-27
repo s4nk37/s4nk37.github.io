@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { FaGooglePlay } from 'react-icons/fa';
+import { BentoGrid, BentoItem } from '../UI/BentoGrid';
 
 interface Project {
     title: string;
@@ -10,6 +11,7 @@ interface Project {
     link: string;
     logo?: string;
     category: 'professional' | 'personal';
+    span?: string; // e.g., "col-span-2"
 }
 
 const Projects: React.FC = () => {
@@ -39,7 +41,8 @@ const Projects: React.FC = () => {
             description: "A lightweight, modular FastAPI backend for managing Todo items. Built with Poetry, SQLAlchemy, Pydantic, and Alembic.",
             tags: ["Python", "FastAPI", "SQLAlchemy"],
             link: "https://github.com/s4nk37/flow_backend",
-            category: "personal"
+            category: "personal",
+            span: "col-span-2"
         },
         {
             title: "Flutter Toolkit",
@@ -212,13 +215,32 @@ const Projects: React.FC = () => {
                                 borderRadius: '2px'
                             }} />
                         </div>
-                        <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                            gap: '2rem'
-                        }}>
-                            {personalProjects.map(renderProject)}
-                        </div>
+
+                        <BentoGrid>
+                            {personalProjects.map((project, index) => (
+                                <BentoItem
+                                    key={index}
+                                    className={project.span}
+                                    title={project.title}
+                                    description={project.description}
+                                    onClick={() => window.open(project.link, '_blank')}
+                                    header={
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+                                            <div className="project-icon-placeholder" /> {/* Optional icon placeholder */}
+                                            <ExternalLink size={16} style={{ color: 'var(--text-secondary)' }} />
+                                        </div>
+                                    }
+                                >
+                                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+                                        {project.tags.map(tag => (
+                                            <span key={tag} className="project-tag" style={{ fontSize: '0.75rem' }}>
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </BentoItem>
+                            ))}
+                        </BentoGrid>
                     </div>
                 )}
             </div>

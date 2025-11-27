@@ -51,11 +51,10 @@ const Experience: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.2 }}
+                            className="glass"
                             style={{
                                 padding: '2.5rem',
                                 borderRadius: '24px',
-                                background: 'var(--surface-color)',
-                                boxShadow: '0 25px 70px rgba(0,0,0,0.07)',
                                 border: '1px solid var(--border-color)',
                                 position: 'relative',
                                 overflow: 'hidden'

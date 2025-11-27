@@ -17,6 +17,13 @@ export default defineConfig({
           lottie: ['lottie-react'],
         },
       },
+      onwarn(warning, warn) {
+        // Suppress eval warning from lottie-web (third-party library)
+        if (warning.code === 'EVAL' && warning.id?.includes('lottie')) {
+          return;
+        }
+        warn(warning);
+      },
     },
   },
 })
