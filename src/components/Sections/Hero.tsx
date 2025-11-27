@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail, MapPin } from 'lucide-react';
 import MobileAnimation from '../Visuals/MobileAnimation';
 
 const Hero: React.FC = () => {
@@ -52,11 +52,29 @@ const Hero: React.FC = () => {
                             fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
                             color: 'var(--text-secondary)',
                             maxWidth: '600px',
-                            marginBottom: 'var(--spacing-lg)'
+                            marginBottom: 'var(--spacing-sm)'
                         }}
                     >
-                        Building scalable, high-quality apps with clean architecture and seamless user experiences. Based in Surat, Gujarat, India.
+                        Building scalable, high-quality apps with clean architecture and seamless user experiences.
                     </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            color: 'var(--text-secondary)',
+                            marginBottom: 'var(--spacing-lg)',
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '0.9rem'
+                        }}
+                    >
+                        <MapPin size={16} color="var(--primary-color)" />
+                        <span>Surat, Gujarat, India</span>
+                    </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
