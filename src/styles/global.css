@@ -691,6 +691,69 @@ button {
     margin-top: 0.5rem;
 }
 
+/* Articles Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .articles-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 1.5rem;
+        margin-right: -1.5rem;
+        /* Negative margin to allow full-width scroll */
+        padding-right: 1.5rem;
+        /* Padding to balance negative margin */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .articles-grid::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari/Webkit */
+    }
+
+    .articles-grid .article-card {
+        min-width: 80vw;
+        scroll-snap-align: center;
+    }
+
+    .swipe-indicator {
+        display: flex;
+    }
+}
+
+.swipe-indicator {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: -1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
 /* Spotlight Grid */
 .spotlight-grid {
     display: grid;

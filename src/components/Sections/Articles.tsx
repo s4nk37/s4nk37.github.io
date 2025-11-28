@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, Clock } from 'lucide-react';
+import { ExternalLink, Calendar, Clock, MoveRight } from 'lucide-react';
 
 interface Article {
     title: string;
@@ -13,6 +13,14 @@ interface Article {
 
 const Articles: React.FC = () => {
     const articles: Article[] = [
+        {
+            title: "Understanding Kernels: Linux, Unix, Windows, macOS & More",
+            excerpt: "A comprehensive guide to understanding kernels, their types, and how they function in different operating systems like Linux, Unix, Windows, and macOS.",
+            date: "Nov 28, 2025",
+            readTime: "4 min read",
+            url: "https://s4nk37.medium.com/understanding-kernels-linux-unix-windows-macos-more-9b4cb95dee80",
+            tags: ["Operating Systems", "Kernel", "Linux", "Windows", "macOS"]
+        },
         {
             title: "Understanding Types of Programming Languages: A Beginner-Friendly Guide to How Code Really Works",
             excerpt: "A beginner-friendly guide explaining the different types of programming languages and how code actually works under the hood.",
@@ -66,12 +74,12 @@ const Articles: React.FC = () => {
                     </p>
                 </div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '2rem',
-                    marginTop: '2rem'
-                }}>
+                <div className="swipe-indicator">
+                    <span>Swipe to explore</span>
+                    <MoveRight size={16} />
+                </div>
+
+                <div className="articles-grid">
                     {articles.map((article, index) => (
                         <motion.article
                             key={index}
