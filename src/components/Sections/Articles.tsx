@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { ExternalLink, Calendar, Clock, MoveRight } from 'lucide-react';
 
 interface Article {
@@ -13,6 +14,14 @@ interface Article {
 
 const Articles: React.FC = () => {
     const articles: Article[] = [
+        {
+            title: "Supercharge Your Flutter Workflow with Flutter Toolkit",
+            excerpt: "Discover how to streamline your Flutter development process using the Flutter Toolkit, a powerful CLI tool for generating assets, managing builds, and more.",
+            date: "Nov 29, 2025",
+            readTime: "3 min read",
+            url: "https://s4nk37.medium.com/supercharge-your-flutter-workflow-with-flutter-toolkit-db29fab17e01",
+            tags: ["Flutter", "DevTools", "Productivity", "Mobile Development"]
+        },
         {
             title: "Understanding Kernels: Linux, Unix, Windows, macOS & More",
             excerpt: "A comprehensive guide to understanding kernels, their types, and how they function in different operating systems like Linux, Unix, Windows, and macOS.",
@@ -32,12 +41,17 @@ const Articles: React.FC = () => {
         {
             title: "How Mobile Apps Run Internally: JIT, AOT, Machine Code, VMs",
             excerpt: "A deep dive into the internals of mobile app execution, exploring JIT compilation, AOT compilation, machine code, and virtual machines across Kotlin, Swift, Flutter, and React Native.",
-            date: "Nov 2025",
+            date: "Nov 23, 2025",
             readTime: "4 min read",
             url: "https://s4nk37.medium.com/how-mobile-apps-run-internally-jit-aot-machine-code-vms-kotlin-swift-flutter-react-0b32a25ec63d",
             tags: ["Mobile Development", "Flutter", "React Native", "Performance"]
         }
     ];
+
+    const navigate = useNavigate();
+
+    // Show only first 3 articles on home page
+    const displayedArticles = articles.slice(0, 3);
 
     return (
         <section id="articles" className="section">
@@ -47,13 +61,21 @@ const Articles: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
+                    style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: 'var(--spacing-lg)' }}
                 >
-                    <div className="section-title-block">
+                    <div className="section-title-block" style={{ marginBottom: 0 }}>
                         <h2 className="section-title">
                             Latest Articles
                         </h2>
                         <div className="section-title-underline" />
                     </div>
+
+                    <button
+                        className="btn btn-outline"
+                        onClick={() => navigate('/articles')}
+                    >
+                        View All
+                    </button>
                 </motion.div>
 
                 <div style={{
@@ -80,7 +102,7 @@ const Articles: React.FC = () => {
                 </div>
 
                 <div className="articles-grid">
-                    {articles.map((article, index) => (
+                    {displayedArticles.map((article, index) => (
                         <motion.article
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
