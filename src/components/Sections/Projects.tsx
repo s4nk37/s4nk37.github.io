@@ -1,7 +1,6 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { FaGooglePlay } from 'react-icons/fa';
-import { BentoGrid, BentoItem } from '../UI/BentoGrid';
 
 interface Project {
     title: string;
@@ -68,7 +67,6 @@ const Projects: React.FC = () => {
     ];
 
     const professionalProjects = projects.filter(p => p.category === 'professional');
-    const personalProjects = projects.filter(p => p.category === 'personal');
 
     const renderProject = (project: Project, index: number) => (
         <div key={index} className="glass" style={{
@@ -185,7 +183,7 @@ const Projects: React.FC = () => {
 
                 {/* Professional Work */}
                 {professionalProjects.length > 0 && (
-                    <div style={{ marginBottom: 'var(--spacing-lg)' }}>
+                    <div>
                         <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -193,54 +191,6 @@ const Projects: React.FC = () => {
                         }}>
                             {professionalProjects.map(renderProject)}
                         </div>
-                    </div>
-                )}
-
-                {/* Personal Projects */}
-                {personalProjects.length > 0 && (
-                    <div>
-                        <div style={{ marginBottom: '2.5rem' }}>
-                            <h3 style={{
-                                fontSize: '1.5rem',
-                                marginBottom: '0.5rem',
-                                fontWeight: 600,
-                                color: 'var(--text-primary)'
-                            }}>
-                                Personal Projects
-                            </h3>
-                            <div style={{
-                                width: '60px',
-                                height: '2px',
-                                background: 'var(--primary-color)',
-                                borderRadius: '2px'
-                            }} />
-                        </div>
-
-                        <BentoGrid>
-                            {personalProjects.map((project, index) => (
-                                <BentoItem
-                                    key={index}
-                                    className={project.span}
-                                    title={project.title}
-                                    description={project.description}
-                                    onClick={() => window.open(project.link, '_blank')}
-                                    header={
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                                            <div className="project-icon-placeholder" /> {/* Optional icon placeholder */}
-                                            <ExternalLink size={16} style={{ color: 'var(--text-secondary)' }} />
-                                        </div>
-                                    }
-                                >
-                                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '1rem' }}>
-                                        {project.tags.map(tag => (
-                                            <span key={tag} className="project-tag" style={{ fontSize: '0.75rem' }}>
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </BentoItem>
-                            ))}
-                        </BentoGrid>
                     </div>
                 )}
             </div>

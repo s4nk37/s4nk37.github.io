@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, simplified = false 
 
     const navLinks = [
         { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#projects' },
+        { name: 'Projects', href: '#personal-projects' },
         { name: 'Articles', href: '#articles' },
         { name: 'Experience', href: '#experience' },
         { name: 'About', href: '#about' },

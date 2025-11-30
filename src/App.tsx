@@ -5,6 +5,7 @@ import Footer from './components/Layout/Footer';
 import Hero from './components/Sections/Hero';
 import About from './components/Sections/About';
 import Projects from './components/Sections/Projects';
+import PersonalProjects from './components/Sections/PersonalProjects';
 import Skills from './components/Sections/Skills';
 import Experience from './components/Sections/Experience';
 import Contact from './components/Sections/Contact';
@@ -37,8 +38,9 @@ function App() {
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <main>
               <Hero />
-              <Skills />
               <Projects />
+              <Skills />
+              <PersonalProjects />
               <Articles />
               <Experience />
               <About />
