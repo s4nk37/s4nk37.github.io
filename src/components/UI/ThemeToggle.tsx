@@ -22,7 +22,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--text-primary)',
+                color: 'var(--text-secondary)',
             }}
         >
             {theme === 'dark' ? (

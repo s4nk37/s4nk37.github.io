@@ -25,6 +25,7 @@
     --text-secondary: #666666;
     --accent-color: #000000;
     --border-color: #e5e5e5;
+    --icon-neutral: #000000;
 
     --gradient-primary: linear-gradient(135deg, #000000 0%, #333333 100%);
     --gradient-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
@@ -40,6 +41,7 @@
     --text-secondary: #a3a3a3;
     --accent-color: #ffffff;
     --border-color: #333333;
+    --icon-neutral: #ffffff;
 
     --gradient-primary: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
     --gradient-surface: linear-gradient(180deg, rgba(18, 18, 18, 0.8) 0%, rgba(18, 18, 18, 0.4) 100%);
@@ -779,7 +781,7 @@ button {
     position: relative;
     border-radius: 16px;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
     height: 100%;
@@ -787,7 +789,7 @@ button {
 
 [data-theme='light'] .spotlight-card {
     background-color: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .spotlight-card:hover {
@@ -1230,7 +1232,7 @@ button {
 /* Skills Bento Grid Layout */
 .skills-bento-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     gap: 0.5rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -1252,6 +1254,18 @@ button {
 
 .skill-bento-item.span-4 {
     grid-column: span 4;
+}
+
+.skill-bento-item.span-5 {
+    grid-column: span 5;
+}
+
+.skill-bento-item.span-6 {
+    grid-column: span 6;
+}
+
+.skill-bento-item.span-7 {
+    grid-column: span 7;
 }
 
 .skill-bento-item .spotlight-card {

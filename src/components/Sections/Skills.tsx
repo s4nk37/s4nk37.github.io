@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import {
     SiReact, SiTypescript, SiPython, SiFastapi, SiFirebase, SiMobx, SiSocketdotio,
     SiGit, SiPostman, SiSqlite, SiTailwindcss, SiFigma, SiRazorpay, SiSentry, SiGooglemaps,
-    SiMixpanel, SiGoogle, SiAxios, SiJavascript, SiMapbox, SiGithub, SiApple, SiGoogleplay, SiApachehive,
+    SiMixpanel, SiGoogle, SiAxios, SiJavascript, SiMapbox, SiGithub, SiApple, SiGoogleplay,
     SiAndroidstudio, SiXcode
 } from 'react-icons/si';
 import { VscVscode } from "react-icons/vsc";
@@ -44,7 +44,7 @@ const Skills: React.FC = () => {
 
                     <div className="skills-bento-grid">
                         {/* Languages */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-2">
+                        <motion.div variants={itemVariants} className="skill-bento-item span-4">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
@@ -62,7 +62,7 @@ const Skills: React.FC = () => {
                         </motion.div>
 
                         {/* Frameworks & UI */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
+                        <motion.div variants={itemVariants} className="skill-bento-item span-6">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
@@ -84,7 +84,7 @@ const Skills: React.FC = () => {
                         </motion.div>
 
                         {/* Architecture & State Management */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-2">
+                        <motion.div variants={itemVariants} className="skill-bento-item span-5">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
@@ -105,7 +105,7 @@ const Skills: React.FC = () => {
                         </motion.div>
 
                         {/* Backend, Data & Networking */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
+                        <motion.div variants={itemVariants} className="skill-bento-item span-5">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
@@ -117,9 +117,9 @@ const Skills: React.FC = () => {
                                     <SkillPill icon={<SiFirebase color="#FFCA28" size={16} />} name="Firebase" />
                                     <SkillPill icon={<SiFirebase color="#FFCA28" size={16} />} name="Firestore" />
                                     <SkillPill icon={<SiFastapi color="#009688" size={16} />} name="FastAPI" />
-                                    <SkillPill icon={<SiApachehive color="#FDEE21" size={16} />} name="Hive" />
+                                    <SkillPill icon={<Database style={{ color: 'var(--icon-neutral)' }} size={16} />} name="Hive" />
                                     <SkillPill icon={<SiSqlite color="#003B57" size={16} />} name="Sqflite" />
-                                    <SkillPill icon={<SiSocketdotio color="#010101" size={16} />} name="Socket.io" />
+                                    <SkillPill icon={<SiSocketdotio style={{ color: 'var(--icon-neutral)' }} size={16} />} name="Socket.io" />
                                     <SkillPill icon={<Globe size={16} />} name="REST APIs" />
                                     <SkillPill icon={<Globe size={16} />} name="Dio" />
                                     <SkillPill icon={<SiAxios color="#5A29E4" size={16} />} name="Axios" />
@@ -128,7 +128,7 @@ const Skills: React.FC = () => {
                         </motion.div>
 
                         {/* Integrations */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
+                        <motion.div variants={itemVariants} className="skill-bento-item span-6">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
@@ -147,13 +147,13 @@ const Skills: React.FC = () => {
                                     <SkillPill icon={<SiGoogle color="#4285F4" size={16} />} name="Google Sign-In" />
                                     <SkillPill icon={<SiSentry color="#362D59" size={16} />} name="Sentry" />
                                     <SkillPill icon={<SiMixpanel color="#A020F0" size={16} />} name="Mixpanel" />
-                                    <SkillPill icon={<Activity color="#231F20" size={16} />} name="Amplitude" />
+                                    <SkillPill icon={<Activity style={{ color: 'var(--icon-neutral)' }} size={16} />} name="Amplitude" />
                                 </div>
                             </SpotlightCard>
                         </motion.div>
 
                         {/* Tools & Deployment */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-2">
+                        <motion.div variants={itemVariants} className="skill-bento-item span-4">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
@@ -163,13 +163,13 @@ const Skills: React.FC = () => {
                                 </div>
                                 <div className="skill-list">
                                     <SkillPill icon={<SiGit color="#F05032" size={16} />} name="Git" />
-                                    <SkillPill icon={<SiGithub color="#181717" size={16} />} name="GitHub" />
+                                    <SkillPill icon={<SiGithub style={{ color: 'var(--icon-neutral)' }} size={16} />} name="GitHub" />
                                     <SkillPill icon={<VscVscode color="#007ACC" size={16} />} name="VS Code" />
                                     <SkillPill icon={<SiAndroidstudio color="#3DDC84" size={16} />} name="Android Studio" />
                                     <SkillPill icon={<SiXcode color="#147EFB" size={16} />} name="Xcode" />
                                     <SkillPill icon={<SiPostman color="#FF6C37" size={16} />} name="Postman" />
                                     <SkillPill icon={<SiApple size={16} />} name="App Store Connect" />
-                                    <SkillPill icon={<SiGoogleplay color="#414141" size={16} />} name="Play Console" />
+                                    <SkillPill icon={<SiGoogleplay style={{ color: 'var(--icon-neutral)' }} size={16} />} name="Play Console" />
                                 </div>
                             </SpotlightCard>
                         </motion.div>
