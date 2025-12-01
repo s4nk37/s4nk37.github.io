@@ -15,6 +15,14 @@ interface Article {
 const Articles: React.FC = () => {
     const articles: Article[] = [
         {
+            title: "🖥️ Essential Terminal Commands: macOS & Linux",
+            excerpt: "A comprehensive guide to essential terminal commands for macOS and Linux users to boost productivity and navigate the command line with confidence.",
+            date: "Dec 1, 2025",
+            readTime: "4 min read",
+            url: "https://s4nk37.medium.com/%EF%B8%8F-essential-terminal-commands-macos-linux-f727b71901cf",
+            tags: ["Terminal", "macOS", "Linux", "Productivity", "CLI"]
+        },
+        {
             title: "Supercharge Your Flutter Workflow with Flutter Toolkit",
             excerpt: "Discover how to streamline your Flutter development process using the Flutter Toolkit, a powerful CLI tool for generating assets, managing builds, and more.",
             date: "Nov 29, 2025",
