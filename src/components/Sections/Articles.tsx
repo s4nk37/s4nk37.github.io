@@ -1,19 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ExternalLink, Calendar, Clock, MoveRight } from 'lucide-react';
-
-interface Article {
-    title: string;
-    excerpt: string;
-    date: string;
-    readTime: string;
-    url: string;
-    tags: string[];
-}
+import { fetchMediumArticles, type Article } from '../../services/medium';
 
 const Articles: React.FC = () => {
-    const articles: Article[] = [
+    const fallbackArticles: Article[] = [
         {
             title: "🖥️ Essential Terminal Commands: macOS & Linux",
             excerpt: "A comprehensive guide to essential terminal commands for macOS and Linux users to boost productivity and navigate the command line with confidence.",
@@ -55,6 +47,22 @@ const Articles: React.FC = () => {
             tags: ["Mobile Development", "Flutter", "React Native", "Performance"]
         }
     ];
+
+    const [articles, setArticles] = useState<Article[]>(fallbackArticles);
+
+    useEffect(() => {
+        const loadArticles = async () => {
+            try {
+                const fetchedArticles = await fetchMediumArticles();
+                if (fetchedArticles.length > 0) {
+                    setArticles(fetchedArticles);
+                }
+            } catch (error) {
+                console.error("Failed to load articles", error);
+            }
+        };
+        loadArticles();
+    }, []);
 
     const navigate = useNavigate();
 
@@ -100,7 +108,7 @@ const Articles: React.FC = () => {
                         margin: 0,
                         fontStyle: 'italic'
                     }}>
-                        These articles come from things I learned, broke, fixed, Googled, got curious about, or asked AI while coding. They’re basically my personal notes—written to help me remember and to help the community too.
+                        These articles come from things I learned, broke, fixed, googled, got curious about, or asked AI while coding. They’re basically my personal notes—written to help me remember and to help the community too.
                     </p>
                 </div>
 

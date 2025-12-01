@@ -3,15 +3,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, Clock, ArrowUp } from 'lucide-react';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
-
-interface Article {
-    title: string;
-    excerpt: string;
-    date: string;
-    readTime: string;
-    url: string;
-    tags: string[];
-}
+import { fetchMediumArticles, type Article } from '../../services/medium';
 
 interface ArticlesPageProps {
     theme: 'light' | 'dark';
@@ -19,7 +11,7 @@ interface ArticlesPageProps {
 }
 
 const ArticlesPage: React.FC<ArticlesPageProps> = ({ theme, toggleTheme }) => {
-    const articles: Article[] = [
+    const fallbackArticles: Article[] = [
         {
             title: "🖥️ Essential Terminal Commands: macOS & Linux",
             excerpt: "A comprehensive guide to essential terminal commands for macOS and Linux users to boost productivity and navigate the command line with confidence.",
@@ -61,6 +53,22 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ theme, toggleTheme }) => {
             tags: ["Mobile Development", "Flutter", "React Native", "Performance"]
         }
     ];
+
+    const [articles, setArticles] = useState<Article[]>(fallbackArticles);
+
+    useEffect(() => {
+        const loadArticles = async () => {
+            try {
+                const fetchedArticles = await fetchMediumArticles();
+                if (fetchedArticles.length > 0) {
+                    setArticles(fetchedArticles);
+                }
+            } catch (error) {
+                console.error("Failed to load articles", error);
+            }
+        };
+        loadArticles();
+    }, []);
 
     const [showScrollTop, setShowScrollTop] = useState(false);
 
