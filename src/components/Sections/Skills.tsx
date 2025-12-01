@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
     SiReact, SiTypescript, SiPython, SiFastapi, SiFirebase, SiMobx, SiSocketdotio,
-    SiGit, SiPostman, SiSqlite, SiTailwindcss, SiAndroidstudio,
-    SiXcode, SiFigma, SiRazorpay, SiSentry, SiGooglemaps,
-    SiMixpanel, SiGoogle, SiAxios
+    SiGit, SiPostman, SiSqlite, SiTailwindcss, SiFigma, SiRazorpay, SiSentry, SiGooglemaps,
+    SiMixpanel, SiGoogle, SiAxios, SiJavascript, SiMapbox, SiGithub, SiApple, SiGoogleplay, SiApachehive,
+    SiAndroidstudio, SiXcode
 } from 'react-icons/si';
 import { VscVscode } from "react-icons/vsc";
 import {
-    Smartphone, Layout, Terminal, Database, Globe, Bell, Link, Upload,
-    Server, FileCode, Layers, Radio, Activity
+    Smartphone, Layout, Terminal, Database, Globe, Bell,
+    FileCode, Layers, Radio, Activity, Camera, MapPin, Box, Cpu
 } from 'lucide-react';
 
 const Skills: React.FC = () => {
@@ -43,147 +43,133 @@ const Skills: React.FC = () => {
                     </div>
 
                     <div className="skills-bento-grid">
-                        {/* Row 1: Full width items */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
+                        {/* Languages */}
+                        <motion.div variants={itemVariants} className="skill-bento-item span-2">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
-                                        <Smartphone size={18} />
+                                        <FileCode size={18} />
                                     </div>
-                                    <h3 className="skill-category-title">Languages & Frameworks</h3>
+                                    <h3 className="skill-category-title">Languages</h3>
                                 </div>
                                 <div className="skill-list">
                                     <SkillPill icon={<img src="/icons/dart.svg" alt="Dart" width="16" height="16" />} name="Dart" />
                                     <SkillPill icon={<SiTypescript color="#3178C6" size={16} />} name="TypeScript" />
-                                    <SkillPill icon={<img src="/icons/flutter.svg" alt="Flutter" width="16" height="16" />} name="Flutter" />
-                                    <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React Native" />
-                                    <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React" />
-                                </div>
-                            </SpotlightCard>
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
-                            <SpotlightCard>
-                                <div className="skill-category-header">
-                                    <div className="skill-category-icon">
-                                        <Server size={18} />
-                                    </div>
-                                    <h3 className="skill-category-title">Backend & Cloud</h3>
-                                </div>
-                                <div className="skill-list">
-                                    <SkillPill icon={<SiFirebase color="#FFCA28" size={16} />} name="Firebase" />
-                                    <SkillPill icon={<Globe size={16} />} name="REST APIs" />
-                                    <SkillPill icon={<SiSocketdotio size={16} />} name="Socket.io" />
-                                    <SkillPill icon={<Globe size={16} />} name="Dio" />
-                                    <SkillPill icon={<SiAxios color="#5A29E4" size={16} />} name="Axios" />
-                                    <SkillPill icon={<SiFastapi color="#009688" size={16} />} name="FastAPI" />
+                                    <SkillPill icon={<SiJavascript color="#F7DF1E" size={16} />} name="JavaScript" />
                                     <SkillPill icon={<SiPython color="#3776AB" size={16} />} name="Python" />
                                 </div>
                             </SpotlightCard>
                         </motion.div>
 
-                        {/* Row 2: Mixed sizes */}
-                        <motion.div variants={itemVariants} className="skill-bento-item">
-                            <SpotlightCard>
-                                <div className="skill-category-header">
-                                    <div className="skill-category-icon">
-                                        <Layers size={18} />
-                                    </div>
-                                    <h3 className="skill-category-title">State Management</h3>
-                                </div>
-                                <div className="skill-list">
-                                    <SkillPill icon={<SiMobx color="#FF9955" size={16} />} name="MobX" />
-                                    <SkillPill icon={<Layers size={16} />} name="Provider" />
-                                    <SkillPill icon={<img src="/icons/bloc.svg" alt="Bloc" width="16" height="16" />} name="Bloc" />
-                                </div>
-                            </SpotlightCard>
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="skill-bento-item span-2">
+                        {/* Frameworks & UI */}
+                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
                                         <Layout size={18} />
                                     </div>
-                                    <h3 className="skill-category-title">UI & Styling</h3>
+                                    <h3 className="skill-category-title">Frameworks & UI</h3>
                                 </div>
                                 <div className="skill-list">
+                                    <SkillPill icon={<img src="/icons/flutter.svg" alt="Flutter" width="16" height="16" />} name="Flutter" />
+                                    <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React Native" />
+                                    <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React.js" />
+                                    <SkillPill icon={<SiTailwindcss color="#06B6D4" size={16} />} name="Tailwind CSS" />
                                     <SkillPill icon={<SiTailwindcss color="#06B6D4" size={16} />} name="NativeWind" />
-                                    <SkillPill icon={<FileCode size={16} />} name="StyleSheet" />
+                                    <SkillPill icon={<Smartphone size={16} />} name="Material Design" />
+                                    <SkillPill icon={<SiApple size={16} />} name="Cupertino" />
+                                    <SkillPill icon={<SiFigma color="#F24E1E" size={16} />} name="Figma" />
+                                </div>
+                            </SpotlightCard>
+                        </motion.div>
+
+                        {/* Architecture & State Management */}
+                        <motion.div variants={itemVariants} className="skill-bento-item span-2">
+                            <SpotlightCard>
+                                <div className="skill-category-header">
+                                    <div className="skill-category-icon">
+                                        <Cpu size={18} />
+                                    </div>
+                                    <h3 className="skill-category-title">Architecture & State Management</h3>
+                                </div>
+                                <div className="skill-list">
+                                    <SkillPill icon={<Box size={16} />} name="Clean Architecture" />
+                                    <SkillPill icon={<Layout size={16} />} name="MVVM" />
+                                    <SkillPill icon={<img src="/icons/bloc.svg" alt="Bloc" width="16" height="16" />} name="BLoC" />
+                                    <SkillPill icon={<SiMobx color="#FF9955" size={16} />} name="MobX" />
+                                    <SkillPill icon={<Layers size={16} />} name="Provider" />
                                     <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React Hooks" />
                                     <SkillPill icon={<img src="/icons/flutter.svg" alt="Flutter" width="16" height="16" />} name="Flutter Hooks" />
                                 </div>
                             </SpotlightCard>
                         </motion.div>
 
+                        {/* Backend, Data & Networking */}
+                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
+                            <SpotlightCard>
+                                <div className="skill-category-header">
+                                    <div className="skill-category-icon">
+                                        <Database size={18} />
+                                    </div>
+                                    <h3 className="skill-category-title">Backend, Data & Networking</h3>
+                                </div>
+                                <div className="skill-list">
+                                    <SkillPill icon={<SiFirebase color="#FFCA28" size={16} />} name="Firebase" />
+                                    <SkillPill icon={<SiFirebase color="#FFCA28" size={16} />} name="Firestore" />
+                                    <SkillPill icon={<SiFastapi color="#009688" size={16} />} name="FastAPI" />
+                                    <SkillPill icon={<SiApachehive color="#FDEE21" size={16} />} name="Hive" />
+                                    <SkillPill icon={<SiSqlite color="#003B57" size={16} />} name="Sqflite" />
+                                    <SkillPill icon={<SiSocketdotio color="#010101" size={16} />} name="Socket.io" />
+                                    <SkillPill icon={<Globe size={16} />} name="REST APIs" />
+                                    <SkillPill icon={<Globe size={16} />} name="Dio" />
+                                    <SkillPill icon={<SiAxios color="#5A29E4" size={16} />} name="Axios" />
+                                </div>
+                            </SpotlightCard>
+                        </motion.div>
+
+                        {/* Integrations */}
+                        <motion.div variants={itemVariants} className="skill-bento-item span-3">
+                            <SpotlightCard>
+                                <div className="skill-category-header">
+                                    <div className="skill-category-icon">
+                                        <Globe size={18} />
+                                    </div>
+                                    <h3 className="skill-category-title">Integrations</h3>
+                                </div>
+                                <div className="skill-list">
+                                    <SkillPill icon={<SiGooglemaps color="#4285F4" size={16} />} name="Google Maps" />
+                                    <SkillPill icon={<SiMapbox color="#4264FB" size={16} />} name="Mapbox" />
+                                    <SkillPill icon={<SiRazorpay color="#3395FF" size={16} />} name="Razorpay" />
+                                    <SkillPill icon={<Camera size={16} />} name="Camera" />
+                                    <SkillPill icon={<Radio size={16} />} name="NFC" />
+                                    <SkillPill icon={<MapPin size={16} />} name="GPS" />
+                                    <SkillPill icon={<Bell size={16} />} name="Push Notifications" />
+                                    <SkillPill icon={<SiGoogle color="#4285F4" size={16} />} name="Google Sign-In" />
+                                    <SkillPill icon={<SiSentry color="#362D59" size={16} />} name="Sentry" />
+                                    <SkillPill icon={<SiMixpanel color="#A020F0" size={16} />} name="Mixpanel" />
+                                    <SkillPill icon={<Activity color="#231F20" size={16} />} name="Amplitude" />
+                                </div>
+                            </SpotlightCard>
+                        </motion.div>
+
+                        {/* Tools & Deployment */}
                         <motion.div variants={itemVariants} className="skill-bento-item span-2">
                             <SpotlightCard>
                                 <div className="skill-category-header">
                                     <div className="skill-category-icon">
                                         <Terminal size={18} />
                                     </div>
-                                    <h3 className="skill-category-title">Tools & Platforms</h3>
+                                    <h3 className="skill-category-title">Tools & Deployment</h3>
                                 </div>
                                 <div className="skill-list">
                                     <SkillPill icon={<SiGit color="#F05032" size={16} />} name="Git" />
-                                    <SkillPill icon={<SiPostman color="#FF6C37" size={16} />} name="Postman" />
+                                    <SkillPill icon={<SiGithub color="#181717" size={16} />} name="GitHub" />
+                                    <SkillPill icon={<VscVscode color="#007ACC" size={16} />} name="VS Code" />
                                     <SkillPill icon={<SiAndroidstudio color="#3DDC84" size={16} />} name="Android Studio" />
                                     <SkillPill icon={<SiXcode color="#147EFB" size={16} />} name="Xcode" />
-                                    <SkillPill icon={<SiFigma color="#F24E1E" size={16} />} name="Figma" />
-                                    <SkillPill icon={<VscVscode color="#007ACC" size={16} />} name="VS Code" />
-                                </div>
-                            </SpotlightCard>
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="skill-bento-item">
-                            <SpotlightCard>
-                                <div className="skill-category-header">
-                                    <div className="skill-category-icon">
-                                        <Database size={18} />
-                                    </div>
-                                    <h3 className="skill-category-title">Databases</h3>
-                                </div>
-                                <div className="skill-list">
-                                    <SkillPill icon={<Database size={16} />} name="Hive" />
-                                    <SkillPill icon={<SiSqlite color="#003B57" size={16} />} name="Sqflite" />
-                                </div>
-                            </SpotlightCard>
-                        </motion.div>
-
-                        {/* Row 3: Integrations wide + Others */}
-                        <motion.div variants={itemVariants} className="skill-bento-item span-4">
-                            <SpotlightCard>
-                                <div className="skill-category-header">
-                                    <div className="skill-category-icon">
-                                        <Link size={18} />
-                                    </div>
-                                    <h3 className="skill-category-title">Integrations</h3>
-                                </div>
-                                <div className="skill-list">
-                                    <SkillPill icon={<SiRazorpay color="#3395FF" size={16} />} name="Razorpay" />
-                                    <SkillPill icon={<SiSentry color="#362D59" size={16} />} name="Sentry" />
-                                    <SkillPill icon={<SiGooglemaps color="#4285F4" size={16} />} name="Google Maps" />
-                                    <SkillPill icon={<Radio size={16} />} name="NFC" />
-                                    <SkillPill icon={<Activity color="#231F20" size={16} />} name="Amplitude" />
-                                    <SkillPill icon={<SiMixpanel color="#A020F0" size={16} />} name="Mixpanel" />
-                                    <SkillPill icon={<Bell size={16} />} name="Push Notifications" />
-                                    <SkillPill icon={<SiGoogle color="#4285F4" size={16} />} name="Google Sign-in" />
-                                </div>
-                            </SpotlightCard>
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="skill-bento-item span-2">
-                            <SpotlightCard>
-                                <div className="skill-category-header">
-                                    <div className="skill-category-icon">
-                                        <Globe size={18} />
-                                    </div>
-                                    <h3 className="skill-category-title">Others</h3>
-                                </div>
-                                <div className="skill-list">
-                                    <SkillPill icon={<Upload size={16} />} name="iOS & Android App Deployment" />
-                                    <SkillPill icon={<Globe size={16} />} name="Localization" />
-                                    <SkillPill icon={<Link size={16} />} name="Deep Linking" />
+                                    <SkillPill icon={<SiPostman color="#FF6C37" size={16} />} name="Postman" />
+                                    <SkillPill icon={<SiApple size={16} />} name="App Store Connect" />
+                                    <SkillPill icon={<SiGoogleplay color="#414141" size={16} />} name="Play Console" />
                                 </div>
                             </SpotlightCard>
                         </motion.div>
