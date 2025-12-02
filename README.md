@@ -89,6 +89,8 @@ The portfolio includes the following sections:
 - **📝 Articles Section**: Latest blog posts and articles from Medium
 - **📧 Contact Section**: Easy way to get in touch via email
 - **🔗 Footer**: Social media links (GitHub, LinkedIn, X, StackOverflow) and copyright
+- **⚡ Loading Animation**: Custom Lottie animation loader
+- **🚫 404 Page**: Custom "Page Not Found" experience
 
 ---
 

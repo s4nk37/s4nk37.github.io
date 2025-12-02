@@ -4,6 +4,7 @@ import { ExternalLink, Calendar, Clock, ArrowUp } from 'lucide-react';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
 import { fetchMediumArticles, type Article } from '../../services/medium';
+import SEO from '../Utils/SEO';
 
 interface ArticlesPageProps {
     theme: 'light' | 'dark';
@@ -95,6 +96,11 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ theme, toggleTheme }) => {
 
     return (
         <div className="app">
+            <SEO
+                title="Articles"
+                description="Read technical articles and tutorials about Flutter, React Native, and Mobile Development by Sanket Patel."
+                url="https://s4nk37.github.io/articles"
+            />
             <Navbar theme={theme} toggleTheme={toggleTheme} simplified={true} />
             <main style={{ paddingTop: '80px', minHeight: '100vh' }}>
                 <section className="section">

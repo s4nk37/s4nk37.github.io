@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import './Loader.css';
 
 const Loader: React.FC = () => {
@@ -9,12 +10,12 @@ const Loader: React.FC = () => {
         // Start fade out after content loads
         const fadeTimer = setTimeout(() => {
             setIsFading(true);
-        }, 800);
+        }, 2500);
 
         // Remove from DOM after fade completes
         const removeTimer = setTimeout(() => {
             setIsVisible(false);
-        }, 1100);
+        }, 2800);
 
         return () => {
             clearTimeout(fadeTimer);
@@ -26,11 +27,12 @@ const Loader: React.FC = () => {
 
     return (
         <div className={`loader-container ${isFading ? 'fade-out' : ''}`}>
-            <div className="loader">
-                <div className="loader-circle"></div>
-                <div className="loader-circle"></div>
-                <div className="loader-circle"></div>
-            </div>
+            <DotLottieReact
+                src="https://lottie.host/a5448d4b-70d4-4eba-a38b-b61a242f84e9/qL4b6YaBOa.lottie"
+                loop
+                autoplay
+                style={{ width: '300px', height: '300px' }}
+            />
         </div>
     );
 };

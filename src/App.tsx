@@ -11,7 +11,9 @@ import Experience from './components/Sections/Experience';
 import Contact from './components/Sections/Contact';
 import Articles from './components/Sections/Articles';
 import ArticlesPage from './components/Pages/ArticlesPage';
+import NotFound from './components/Pages/NotFound';
 import Loader from './components/UI/Loader';
+import SEO from './components/Utils/SEO';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -35,6 +37,11 @@ function App() {
       <Routes>
         <Route path="/" element={
           <div className="app">
+            <SEO
+              title="Sanket Patel | Mobile Application Developer"
+              description="Mobile Application Developer with 1.5+ years of experience in Flutter and React Native. Specializing in building scalable, high-quality apps with clean architecture."
+              keywords={["Mobile Application Developer", "Flutter Developer", "React Native Developer", "Sanket Patel", "Portfolio"]}
+            />
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <main>
               <Hero />
@@ -51,6 +58,9 @@ function App() {
         } />
         <Route path="/articles" element={
           <ArticlesPage theme={theme} toggleTheme={toggleTheme} />
+        } />
+        <Route path="*" element={
+          <NotFound theme={theme} toggleTheme={toggleTheme} />
         } />
       </Routes>
     </>
