@@ -10,11 +10,14 @@ export default defineConfig({
     port: 5173,
   },
   build: {
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
         manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
           framer: ['framer-motion'],
-          lottie: ['lottie-react'],
+          dotlottie: ['@lottiefiles/dotlottie-react'],
+          icons: ['lucide-react', 'react-icons'],
         },
       },
       onwarn(warning, warn) {

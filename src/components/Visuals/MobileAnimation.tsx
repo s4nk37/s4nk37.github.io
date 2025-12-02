@@ -1,18 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import Lottie, { type LottieRefCurrentProps } from 'lottie-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import birdAnimation from '../../assets/Flying Bird Animation.json';
 
 const MobileAnimation: React.FC = () => {
-    const lottieRef = useRef<LottieRefCurrentProps>(null);
-
-    useEffect(() => {
-        if (lottieRef.current) {
-            lottieRef.current.setSpeed(0.5);
-        }
-    }, []);
-
     const drawVariants: Variants = {
         hidden: { pathLength: 0, opacity: 0 },
         visible: (i: number) => ({
@@ -177,24 +169,24 @@ const MobileAnimation: React.FC = () => {
             <div
                 style={{
                     position: "absolute",
-                    top: '3%',
-                    right: '-25%',
+                    top: '13%',
+                    right: '-24%',
                     width: '55%',
-                    overflow: "hidden",
+                    // overflow: "hidden",
                     transform: "scaleX(-1)",
                     pointerEvents: "none",
                     zIndex: 10,
                 }}
             >
-                <Lottie
-                    lottieRef={lottieRef}
-                    animationData={birdAnimation}
-                    loop={true}
-                    autoplay={true}
-                    initialSegment={[0, 103]}
-                    onLoadedImages={() => {
-                        lottieRef.current?.setSpeed(0.6);
-                    }}
+                <DotLottieReact
+                    data={birdAnimation}
+                    loop
+                    autoplay
+                    style={
+                        { scale: 1.8 }
+                    }
+                    segment={[0, 103]}
+                    speed={0.6}
                 />
             </div>
         </div>
