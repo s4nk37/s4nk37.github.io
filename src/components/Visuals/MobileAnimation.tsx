@@ -109,7 +109,7 @@ const MobileAnimation: React.FC = () => {
 
                 {/* Dashatars Image */}
                 <motion.image
-                    href="/Dashatars.png"
+                    href="/Dashatars.webp"
                     x="100" y="310" width="260" height="210"
                     preserveAspectRatio="xMidYMid contain"
                     initial={{ opacity: 0, y: 20 }}

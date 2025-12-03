@@ -182,17 +182,27 @@ const Skills: React.FC = () => {
 
 const SpotlightCard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const divRef = React.useRef<HTMLDivElement>(null);
-    const [position, setPosition] = React.useState({ x: 0, y: 0 });
-    const [opacity, setOpacity] = React.useState(0);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!divRef.current) return;
         const rect = divRef.current.getBoundingClientRect();
-        setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        divRef.current.style.setProperty('--mouse-x', `${x}px`);
+        divRef.current.style.setProperty('--mouse-y', `${y}px`);
     };
 
-    const handleMouseEnter = () => setOpacity(1);
-    const handleMouseLeave = () => setOpacity(0);
+    const handleMouseEnter = () => {
+        if (divRef.current) {
+            divRef.current.style.setProperty('--spotlight-opacity', '1');
+        }
+    };
+
+    const handleMouseLeave = () => {
+        if (divRef.current) {
+            divRef.current.style.setProperty('--spotlight-opacity', '0');
+        }
+    };
 
     return (
         <div
@@ -202,9 +212,9 @@ const SpotlightCard: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             onMouseLeave={handleMouseLeave}
             className="spotlight-card"
             style={{
-                '--mouse-x': `${position.x}px`,
-                '--mouse-y': `${position.y}px`,
-                '--spotlight-opacity': opacity,
+                '--mouse-x': '0px',
+                '--mouse-y': '0px',
+                '--spotlight-opacity': 0,
             } as React.CSSProperties}
         >
             <div className="spotlight-glow" />
