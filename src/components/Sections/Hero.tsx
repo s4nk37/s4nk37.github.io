@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Briefcase } from 'lucide-react';
 
 const MobileAnimation = React.lazy(() => import('../Visuals/MobileAnimation'));
 
@@ -75,6 +75,9 @@ const Hero: React.FC = () => {
                     >
                         <MapPin size={16} color="var(--primary-color)" />
                         <span>Surat, Gujarat, India</span>
+                        <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>|</span>
+                        <Briefcase size={16} color="var(--primary-color)" />
+                        <span>1.5 Years Exp.</span>
                     </motion.div>
 
                     <motion.div
