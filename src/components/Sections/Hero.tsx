@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, MapPin } from 'lucide-react';
-import MobileAnimation from '../Visuals/MobileAnimation';
+
+const MobileAnimation = React.lazy(() => import('../Visuals/MobileAnimation'));
 
 const Hero: React.FC = () => {
     return (
@@ -97,7 +98,9 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="hero-visual"
                 >
-                    <MobileAnimation />
+                    <Suspense fallback={<div style={{ height: '400px' }} />}>
+                        <MobileAnimation />
+                    </Suspense>
                 </motion.div>
             </div>
         </section>

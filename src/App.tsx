@@ -1,19 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
 import Hero from './components/Sections/Hero';
-import About from './components/Sections/About';
-import Projects from './components/Sections/Projects';
-import PersonalProjects from './components/Sections/PersonalProjects';
-import Skills from './components/Sections/Skills';
-import Experience from './components/Sections/Experience';
-import Contact from './components/Sections/Contact';
-import Articles from './components/Sections/Articles';
-import ArticlesPage from './components/Pages/ArticlesPage';
-import NotFound from './components/Pages/NotFound';
 import Loader from './components/UI/Loader';
 import SEO from './components/Utils/SEO';
+
+// Lazy load sections
+const About = lazy(() => import('./components/Sections/About'));
+const Projects = lazy(() => import('./components/Sections/Projects'));
+const PersonalProjects = lazy(() => import('./components/Sections/PersonalProjects'));
+const Skills = lazy(() => import('./components/Sections/Skills'));
+const Experience = lazy(() => import('./components/Sections/Experience'));
+const Contact = lazy(() => import('./components/Sections/Contact'));
+const Articles = lazy(() => import('./components/Sections/Articles'));
+const ArticlesPage = lazy(() => import('./components/Pages/ArticlesPage'));
+const NotFound = lazy(() => import('./components/Pages/NotFound'));
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -45,22 +47,28 @@ function App() {
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <main>
               <Hero />
-              <Projects />
-              <Skills />
-              <PersonalProjects />
-              <Articles />
-              <Experience />
-              <About />
-              <Contact />
+              <Suspense fallback={<div style={{ height: '100vh' }} />}>
+                <Projects />
+                <Skills />
+                <PersonalProjects />
+                <Articles />
+                <Experience />
+                <About />
+                <Contact />
+              </Suspense>
             </main>
             <Footer />
           </div>
         } />
         <Route path="/articles" element={
-          <ArticlesPage theme={theme} toggleTheme={toggleTheme} />
+          <Suspense fallback={<Loader />}>
+            <ArticlesPage theme={theme} toggleTheme={toggleTheme} />
+          </Suspense>
         } />
         <Route path="*" element={
-          <NotFound theme={theme} toggleTheme={toggleTheme} />
+          <Suspense fallback={<Loader />}>
+            <NotFound theme={theme} toggleTheme={toggleTheme} />
+          </Suspense>
         } />
       </Routes>
     </>
