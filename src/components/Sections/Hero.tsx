@@ -63,21 +63,17 @@ const Hero: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.25 }}
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            color: 'var(--text-secondary)',
-                            marginBottom: 'var(--spacing-lg)',
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '0.9rem'
-                        }}
+                        className="hero-meta"
                     >
-                        <MapPin size={16} color="var(--primary-color)" />
-                        <span>Surat, Gujarat, India</span>
-                        <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>|</span>
-                        <Briefcase size={16} color="var(--primary-color)" />
-                        <span>1.5 Years Exp.</span>
+                        <div className="hero-meta-item">
+                            <MapPin size={16} color="var(--primary-color)" />
+                            <span>Surat, Gujarat, India</span>
+                        </div>
+                        <span className="hero-meta-separator">|</span>
+                        <div className="hero-meta-item">
+                            <Briefcase size={16} color="var(--primary-color)" />
+                            <span>1.5 Years Exp.</span>
+                        </div>
                     </motion.div>
 
                     <motion.div

@@ -548,6 +548,32 @@ button {
     padding-left: 2rem;
 }
 
+.hero-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-meta-item span {
+    padding-top: 2px;
+}
+
+.hero-meta-separator {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
 @media (max-width: 968px) {
     .hero-content {
         flex-direction: column-reverse;
@@ -573,6 +599,16 @@ button {
         padding-left: 0;
         margin-bottom: 0;
         margin-top: 0;
+    }
+
+    .hero-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-meta-separator {
+        display: none;
     }
 
     .mobile-animation-container {
