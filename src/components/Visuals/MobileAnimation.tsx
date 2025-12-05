@@ -28,6 +28,8 @@ const MobileAnimation: React.FC = () => {
                 width: '100%',
                 maxWidth: '400px',
                 margin: '0 auto',
+                WebkitTapHighlightColor: 'transparent',
+                userSelect: 'none',
             }}
         >
             <motion.svg
