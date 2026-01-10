@@ -4,12 +4,13 @@ import {
     SiReact, SiTypescript, SiPython, SiFastapi, SiFirebase, SiMobx, SiSocketdotio,
     SiGit, SiPostman, SiSqlite, SiTailwindcss, SiFigma, SiRazorpay, SiSentry, SiGooglemaps,
     SiMixpanel, SiGoogle, SiAxios, SiJavascript, SiMapbox, SiGithub, SiApple, SiGoogleplay,
-    SiAndroidstudio, SiXcode
+    SiAndroidstudio, SiXcode, SiRedux, SiExpo
 } from 'react-icons/si';
 import { VscVscode } from "react-icons/vsc";
 import {
     Smartphone, Layout, Terminal, Database, Globe, Bell,
-    FileCode, Layers, Radio, Activity, Camera, MapPin, Box, Cpu
+    FileCode, Layers, Radio, Activity, Camera, MapPin, Box, Cpu,
+    Link, Video, Grid, Store, CreditCard
 } from 'lucide-react';
 
 const Skills: React.FC = () => {
@@ -71,6 +72,7 @@ const Skills: React.FC = () => {
                                     <h3 className="skill-category-title">Frameworks & UI</h3>
                                 </div>
                                 <div className="skill-list">
+                                    <SkillPill icon={<SiExpo color="#000020" size={16} />} name="Expo" />
                                     <SkillPill icon={<img src="/icons/flutter.svg" alt="Flutter" width="16" height="16" />} name="Flutter" />
                                     <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React Native" />
                                     <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React.js" />
@@ -97,6 +99,8 @@ const Skills: React.FC = () => {
                                     <SkillPill icon={<Layout size={16} />} name="MVVM" />
                                     <SkillPill icon={<img src="/icons/bloc.svg" alt="Bloc" width="16" height="16" />} name="BLoC" />
                                     <SkillPill icon={<SiMobx color="#FF9955" size={16} />} name="MobX" />
+                                    <SkillPill icon={<SiRedux color="#764ABC" size={16} />} name="Redux Toolkit" />
+                                    <SkillPill icon={<Store size={16} />} name="Zustand" />
                                     <SkillPill icon={<Layers size={16} />} name="Provider" />
                                     <SkillPill icon={<SiReact color="#61DAFB" size={16} />} name="React Hooks" />
                                     <SkillPill icon={<img src="/icons/flutter.svg" alt="Flutter" width="16" height="16" />} name="Flutter Hooks" />
@@ -142,11 +146,17 @@ const Skills: React.FC = () => {
                                     <SkillPill icon={<SiRazorpay color="#3395FF" size={16} />} name="Razorpay" />
                                     <SkillPill icon={<Camera size={16} />} name="Camera" />
                                     <SkillPill icon={<Radio size={16} />} name="NFC" />
-                                    <SkillPill icon={<MapPin size={16} />} name="GPS" />
+                                    <SkillPill icon={<MapPin size={16} />} name="Live Tracking" />
                                     <SkillPill icon={<Bell size={16} />} name="Push Notifications" />
                                     <SkillPill icon={<SiGoogle color="#4285F4" size={16} />} name="Google Sign-In" />
                                     <SkillPill icon={<SiSentry color="#362D59" size={16} />} name="Sentry" />
                                     <SkillPill icon={<SiMixpanel color="#A020F0" size={16} />} name="Mixpanel" />
+                                    <SkillPill icon={<Link size={16} />} name="Deep Linking" />
+                                    <SkillPill icon={<Link size={16} />} name="Universal Links" />
+                                    <SkillPill icon={<Grid size={16} />} name="Android Widget" />
+                                    <SkillPill icon={<Grid size={16} />} name="iOS Widget" />
+                                    <SkillPill icon={<Video size={16} />} name="Agora Video Call" />
+                                    <SkillPill icon={<CreditCard size={16} />} name="In-App Purchases" />
                                     <SkillPill icon={<Activity style={{ color: 'var(--icon-neutral)' }} size={16} />} name="Amplitude" />
                                 </div>
                             </SpotlightCard>
@@ -168,6 +178,8 @@ const Skills: React.FC = () => {
                                     <SkillPill icon={<SiAndroidstudio color="#3DDC84" size={16} />} name="Android Studio" />
                                     <SkillPill icon={<SiXcode color="#147EFB" size={16} />} name="Xcode" />
                                     <SkillPill icon={<SiPostman color="#FF6C37" size={16} />} name="Postman" />
+                                    <SkillPill icon={<Globe color="#10B981" size={16} />} name="Hoppscotch" />
+                                    <SkillPill icon={<Layers color="#FF6600" size={16} />} name="BrowserStack" />
                                     <SkillPill icon={<SiApple size={16} />} name="App Store Connect" />
                                     <SkillPill icon={<SiGoogleplay style={{ color: 'var(--icon-neutral)' }} size={16} />} name="Play Console" />
                                 </div>
