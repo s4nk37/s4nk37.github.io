@@ -4,8 +4,8 @@ import { FaGooglePlay } from 'react-icons/fa';
 
 interface Project {
     title: string;
-    description: string;
-    details?: string[];
+    description: string | React.ReactNode;
+    details?: React.ReactNode[];
     tags: string[];
     link: string;
     logo?: string;
@@ -13,15 +13,19 @@ interface Project {
     span?: string; // e.g., "col-span-2"
 }
 
-const Projects: React.FC = () => {
+interface ProjectsProps {
+    displayCategory?: 'professional' | 'personal';
+}
+
+const Projects: React.FC<ProjectsProps> = ({ displayCategory }) => {
     const projects: Project[] = [
         {
             title: "LesGo Consumer App",
             description: "",
             details: [
-                "Contributed to the end-to-end development and migration of LesGo's consumer app, working across Flutter and later in React Native to ensure scalability and consistent design across platforms.",
-                "Developed and integrated key modules such as Offers, Reservation, Search, AI chatbots, social/community systems, and real-time chat, with integrations for Razorpay, Firebase, Sentry, and Amplitude.",
-                "Resolved multiple performance issues, improving load times, reducing UI flickers, and optimizing API responses, while managing production releases on the Play Store and App Store for stability and analytics readiness."
+                <span>Contributed to the <strong style={{ color: 'var(--text-primary)' }}>end-to-end development</strong> and <strong style={{ color: '#4ade80' }}>migration</strong> of LesGo's consumer app, working across Flutter and later in React Native to ensure scalability and consistent design across platforms.</span>,
+                <span>Developed and integrated key modules such as Offers, Reservation, Search, <strong style={{ color: 'var(--text-primary)' }}>AI chatbots</strong>, <strong style={{ color: 'var(--text-primary)' }}>social/community systems</strong>, and real-time chat, with integrations for Razorpay, Firebase, Sentry, and Amplitude.</span>,
+                <span>Resolved multiple performance issues, <strong style={{ color: '#4ade80' }}>slashing load times from 17s to 3s</strong>, reducing UI flickers, and optimizing API responses, while managing production releases on the Play Store and App Store for stability and analytics readiness.</span>
             ],
             tags: ["React Native", "Flutter", "MobX", "TypeScript", "Firebase", "Socket.io"],
             link: "https://play.google.com/store/apps/details?id=com.lesgo.lesgoapp&hl=en_IN",
@@ -30,14 +34,14 @@ const Projects: React.FC = () => {
         },
         {
             title: "Flow",
-            description: "Todo app with CRUD operations and task reminders, featuring online and offline sync.",
+            description: <span>Todo app with <strong style={{ color: 'var(--text-primary)' }}>CRUD operations</strong> and task reminders, featuring online and <strong style={{ color: '#4ade80' }}>offline sync</strong>.</span>,
             tags: ["Flutter", "Offline Sync", "CRUD"],
             link: "https://github.com/s4nk37/flow",
             category: "personal"
         },
         {
             title: "Flow Todo Backend",
-            description: "A lightweight, modular FastAPI backend for managing Todo items. Built with Poetry, SQLAlchemy, Pydantic, and Alembic.",
+            description: <span>A <strong style={{ color: 'var(--text-primary)' }}>lightweight, modular</strong> <strong style={{ color: '#4ade80' }}>FastAPI backend</strong> for managing Todo items. Built with Poetry, SQLAlchemy, Pydantic, and Alembic.</span>,
             tags: ["Python", "FastAPI", "SQLAlchemy"],
             link: "https://github.com/s4nk37/flow_backend",
             category: "personal",
@@ -45,21 +49,21 @@ const Projects: React.FC = () => {
         },
         {
             title: "Flutter Toolkit",
-            description: "A powerful, lightweight CLI assistant to automate Flutter development workflow. Handles project health, code generation, Android/iOS tasks, and release management through an interactive menu.",
+            description: <span>A powerful, lightweight CLI assistant to <strong style={{ color: '#4ade80' }}>automate Flutter development workflow</strong>. Handles <strong style={{ color: 'var(--text-primary)' }}>project health</strong>, code generation, Android/iOS tasks, and release management through an interactive menu.</span>,
             tags: ["Bash", "CLI", "Flutter", "Automation"],
             link: "https://github.com/s4nk37/flutter_toolkit",
             category: "personal"
         },
         {
             title: "Chirp",
-            description: "Real-time messaging app built with Firebase (Firestore, FCM, Auth, Storage) and push notifications.",
+            description: <span><strong style={{ color: '#4ade80' }}>Real-time messaging app</strong> built with <strong style={{ color: 'var(--text-primary)' }}>Firebase</strong> (Firestore, FCM, Auth, Storage) and push notifications.</span>,
             tags: ["Flutter", "Firebase", "Real-time"],
             link: "https://github.com/s4nk37/chirp",
             category: "personal"
         },
         {
             title: "Komodo Trivia",
-            description: "Quiz app built using the Open Trivia DB API, featuring theme selection, multiple question types, and scoring.",
+            description: <span>Quiz app built using the <strong style={{ color: '#4ade80' }}>Open Trivia DB API</strong>, featuring <strong style={{ color: 'var(--text-primary)' }}>theme selection</strong>, multiple question types, and scoring.</span>,
             tags: ["Flutter", "API Integration", "Quiz"],
             link: "https://github.com/s4nk37/komodotrivia",
             category: "personal"
@@ -67,16 +71,10 @@ const Projects: React.FC = () => {
     ];
 
     const professionalProjects = projects.filter(p => p.category === 'professional');
+    const personalProjects = projects.filter(p => p.category === 'personal');
 
     const renderProject = (project: Project, index: number) => (
-        <div key={index} className="glass" style={{
-            padding: '2rem',
-            transition: 'transform 0.3s ease',
-            cursor: 'pointer',
-            border: '1px solid var(--border-color)',
-            borderRadius: '12px',
-            position: 'relative'
-        }}
+        <div key={index} className="project-card"
             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
         >
@@ -172,24 +170,49 @@ const Projects: React.FC = () => {
     );
 
     return (
-        <section id="projects" className="section">
+        <section id={displayCategory === 'personal' ? "personal-projects" : "projects"} className="section">
             <div className="container">
-                <div className="section-title-block">
-                    <h2 className="section-title">
-                        Featured Work
-                    </h2>
-                    <div className="section-title-underline" />
-                </div>
+                {(!displayCategory || displayCategory === 'professional') && (
+                    <div className="section-title-block">
+                        <h2 className="section-title">
+                            Featured Work
+                        </h2>
+                        <div className="section-title-underline" />
+                    </div>
+                )}
 
                 {/* Professional Work */}
-                {professionalProjects.length > 0 && (
-                    <div>
+                {(!displayCategory || displayCategory === 'professional') && professionalProjects.length > 0 && (
+                    <div style={{ marginBottom: displayCategory ? 0 : '4rem' }}>
                         <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                             gap: '2rem'
                         }}>
                             {professionalProjects.map(renderProject)}
+                        </div>
+                    </div>
+                )}
+
+                {/* Personal Projects section title */}
+                {(!displayCategory || displayCategory === 'personal') && (
+                    <div className="section-title-block">
+                        <h2 className="section-title">
+                            Personal Projects
+                        </h2>
+                        <div className="section-title-underline" />
+                    </div>
+                )}
+
+                {/* Personal Projects */}
+                {(!displayCategory || displayCategory === 'personal') && personalProjects.length > 0 && (
+                    <div>
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                            gap: '2rem'
+                        }}>
+                            {personalProjects.map(renderProject)}
                         </div>
                     </div>
                 )}

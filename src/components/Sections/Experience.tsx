@@ -58,14 +58,7 @@ const Experience: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.2 }}
-                            className="glass"
-                            style={{
-                                padding: '2.5rem',
-                                borderRadius: '24px',
-                                border: '1px solid var(--border-color)',
-                                position: 'relative',
-                                overflow: 'hidden'
-                            }}
+                            className="experience-card"
                         >
 
                             {/* Left side - Role and Company */}

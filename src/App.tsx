@@ -9,7 +9,7 @@ import SEO from './components/Utils/SEO';
 // Lazy load sections
 const About = lazy(() => import('./components/Sections/About'));
 const Projects = lazy(() => import('./components/Sections/Projects'));
-const PersonalProjects = lazy(() => import('./components/Sections/PersonalProjects'));
+// const PersonalProjects = lazy(() => import('./components/Sections/PersonalProjects')); // Removed/Consolidated
 const Skills = lazy(() => import('./components/Sections/Skills'));
 const Experience = lazy(() => import('./components/Sections/Experience'));
 const Contact = lazy(() => import('./components/Sections/Contact'));
@@ -48,9 +48,9 @@ function App() {
             <main>
               <Hero />
               <Suspense fallback={<div style={{ height: '100vh' }} />}>
-                <Projects />
+                <Projects displayCategory="professional" />
                 <Skills />
-                <PersonalProjects />
+                <Projects displayCategory="personal" />
                 <Articles />
                 <Experience />
                 <About />
