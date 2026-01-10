@@ -56,7 +56,7 @@ const About: React.FC = () => {
                             <StatCard
                                 icon={<Code size={24} />}
                                 label="Expertise"
-                                value="Mobile Dev"
+                                value="Mobile Development"
                             />
                             <StatCard
                                 icon={<GraduationCap size={24} />}

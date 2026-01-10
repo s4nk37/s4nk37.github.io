@@ -1346,7 +1346,10 @@ button {
     .skill-bento-item,
     .skill-bento-item.span-2,
     .skill-bento-item.span-3,
-    .skill-bento-item.span-4 {
+    .skill-bento-item.span-4,
+    .skill-bento-item.span-5,
+    .skill-bento-item.span-6,
+    .skill-bento-item.span-7 {
         grid-column: span 1;
         min-height: 150px;
     }

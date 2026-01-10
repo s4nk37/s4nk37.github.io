@@ -5,18 +5,25 @@ import { MapPin, Calendar } from 'lucide-react';
 const Experience: React.FC = () => {
     const experiences = [
         {
+            company: "Algorizz Technologies Pvt Ltd",
+            role: "Software Engineer",
+            period: "Dec 2025 - Present",
+            location: "Remote, Bengaluru",
+            index: "01"
+        },
+        {
             company: "LesGo Global Pvt Ltd",
             role: "Software Development Engineer I",
             period: "Jan 2024 - Feb 2025",
-            location: "Remote Bengaluru",
-            index: "01"
+            location: "Remote, Bengaluru",
+            index: "02"
         },
         {
             company: "Tecocraft Infusion Pvt Ltd",
             role: "Jr. Flutter Developer",
             period: "Aug 2023 - Nov 2023",
             location: "Surat, Gujarat",
-            index: "02"
+            index: "03"
         }
     ];
 
@@ -70,6 +77,7 @@ const Experience: React.FC = () => {
                                 <div style={{
                                     display: 'flex',
                                     justifyContent: 'space-between',
+                                    alignItems: 'center',
                                     gap: '2rem',
                                     flexWrap: 'wrap'
                                 }}>
