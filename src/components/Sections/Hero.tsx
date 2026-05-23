@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import { calculateExperience } from '../Utils/experience';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, MapPin, Briefcase } from 'lucide-react';
 
@@ -41,8 +42,8 @@ const Hero: React.FC = () => {
                             letterSpacing: '-0.02em'
                         }}
                     >
-                        Mobile Application <br />
-                        Developer
+                        Software <br />
+                        Engineer
                     </motion.h1>
 
                     <motion.p
@@ -56,7 +57,7 @@ const Hero: React.FC = () => {
                             marginBottom: 'var(--spacing-sm)'
                         }}
                     >
-                        Building scalable, high-quality apps with clean architecture and seamless user experiences.
+                        Building scalable, high-quality mobile apps with clean architecture and seamless user experiences.
                     </motion.p>
 
                     <motion.div
@@ -72,7 +73,7 @@ const Hero: React.FC = () => {
                         <span className="hero-meta-separator">|</span>
                         <div className="hero-meta-item">
                             <Briefcase size={16} color="var(--primary-color)" />
-                            <span>1.5 Years Exp.</span>
+                            <span>{calculateExperience()} Years Exp.</span>
                         </div>
                     </motion.div>
 

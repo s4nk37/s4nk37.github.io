@@ -188,7 +188,7 @@ const MobileAnimation: React.FC = () => {
                         { scale: 1.8 }
                     }
                     segment={[0, 103]}
-                    speed={0.6}
+                    speed={0.33}
                 />
             </div>
         </div>

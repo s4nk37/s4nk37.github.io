@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
                         gap: '0.5rem',
                         flexWrap: 'wrap'
                     }}>
-                        <span>© 2025 Sanket Patel. All rights reserved.</span>
+                        <span>© {new Date().getFullYear()} Sanket Patel. All rights reserved.</span>
                     </p>
                 </div>
             </div>

@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
                         fontSize: '1.2rem'
                     }}
                 >
-                    I'm currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                    I am always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out!
                 </motion.p>
 
                 <motion.div

@@ -16,7 +16,7 @@ const SEO: React.FC<SEOProps> = ({
     image = 'https://s4nk37.github.io/og-image.png',
     url = 'https://s4nk37.github.io/'
 }) => {
-    const siteTitle = "Sanket Patel | Mobile Application Developer";
+    const siteTitle = "Sanket Patel | Software Engineer";
     const fullTitle = title === siteTitle ? title : `${title} | Sanket Patel`;
 
     return (

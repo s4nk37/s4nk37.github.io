@@ -1,4 +1,5 @@
 import React from 'react';
+import { calculateExperience } from '../Utils/experience';
 import { motion } from 'framer-motion';
 import { MapPin, Briefcase, Code, GraduationCap } from 'lucide-react';
 
@@ -26,7 +27,7 @@ const About: React.FC = () => {
                             <span className="gradient-text">precision & passion.</span>
                         </h3>
                         <p className="about-text">
-                            I'm a Mobile Application Developer with <strong>1.5+ years of experience</strong>, specializing in <strong>Flutter</strong> and <strong>React Native</strong>.
+                            I'm a Software Engineer with <strong>{calculateExperience()}+ years of experience</strong>, specializing in <strong>Flutter</strong> and <strong>React Native</strong>.
                             I craft scalable, high-performance applications with clean architecture and seamless user experiences.
                         </p>
                         <p className="about-text">
@@ -46,7 +47,7 @@ const About: React.FC = () => {
                             <StatCard
                                 icon={<Briefcase size={24} />}
                                 label="Experience"
-                                value="1.5+ Years"
+                                value={`${calculateExperience()}+ Years`}
                             />
                             <StatCard
                                 icon={<MapPin size={24} />}

@@ -1,4 +1,5 @@
 import { useState, useEffect, Suspense, lazy } from 'react';
+import { calculateExperience } from './components/Utils/experience';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
@@ -40,9 +41,9 @@ function App() {
         <Route path="/" element={
           <div className="app">
             <SEO
-              title="Sanket Patel | Mobile Application Developer"
-              description="Mobile Application Developer with 1.5+ years of experience in Flutter and React Native. Specializing in building scalable, high-quality apps with clean architecture."
-              keywords={["Mobile Application Developer", "Flutter Developer", "React Native Developer", "Sanket Patel", "Portfolio"]}
+              title="Sanket Patel | Software Engineer"
+              description={`Software Engineer with ${calculateExperience()}+ years of experience in Flutter and React Native. Specializing in building scalable, high-quality mobile apps with clean architecture.`}
+              keywords={["Software Engineer", "Mobile Applications", "Flutter Developer", "React Native Developer", "Sanket Patel", "Portfolio"]}
             />
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <main>
