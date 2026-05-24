@@ -36,13 +36,13 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                         style={{
-                            fontSize: 'clamp(2.2rem, 9vw, 4.5rem)',
+                            fontSize: 'clamp(1.8rem, 8vw, 4.5rem)',
                             lineHeight: '1.1',
                             marginBottom: 'var(--spacing-md)',
                             letterSpacing: '-0.02em'
                         }}
                     >
-                        Software <br />
+                        Software <br className="hide-on-mobile" />
                         Engineer
                     </motion.h1>
 

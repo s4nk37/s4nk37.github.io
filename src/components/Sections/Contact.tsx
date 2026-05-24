@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
                         color: 'var(--text-secondary)',
                         maxWidth: '600px',
                         margin: '0 auto var(--spacing-lg)',
-                        fontSize: '1.2rem'
+                        fontSize: '1rem'
                     }}
                 >
                     I am always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out!

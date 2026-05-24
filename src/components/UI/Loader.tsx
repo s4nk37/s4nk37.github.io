@@ -10,12 +10,12 @@ const Loader: React.FC = () => {
         // Start fade out after content loads
         const fadeTimer = setTimeout(() => {
             setIsFading(true);
-        }, 2500);
+        }, 400);
 
         // Remove from DOM after fade completes
         const removeTimer = setTimeout(() => {
             setIsVisible(false);
-        }, 2800);
+        }, 700);
 
         return () => {
             clearTimeout(fadeTimer);
