@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import { calculateExperience } from '../Utils/experience';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, MapPin, Briefcase } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Briefcase, Rocket, Zap } from 'lucide-react';
+import CountUp from '../UI/CountUp';
 
 const MobileAnimation = React.lazy(() => import('../Visuals/MobileAnimation'));
 
@@ -77,10 +78,44 @@ const Hero: React.FC = () => {
                         </div>
                     </motion.div>
 
+                    {/* Stat Highlight Badges with Count Animation & Rocket */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
+                        transition={{ duration: 0.5, delay: 0.28 }}
+                        className="hero-badges"
+                    >
+                        <div className="hero-badge">
+                            <motion.span
+                                animate={{
+                                    y: [0, -3, 0],
+                                    rotate: [0, 8, -4, 0]
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                style={{ display: 'inline-flex', alignItems: 'center' }}
+                            >
+                                <Rocket size={15} className="hero-badge-icon hero-rocket-icon" />
+                            </motion.span>
+                            <span>
+                                <strong style={{ color: 'var(--primary-color)' }}>
+                                    <CountUp end={12} suffix="+" duration={1.8} />
+                                </strong> Apps Shipped
+                            </span>
+                        </div>
+                        <div className="hero-badge">
+                            <Zap size={14} className="hero-badge-icon" />
+                            <span>Flutter & React Native</span>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.32 }}
                         style={{ display: 'flex', gap: '1rem' }}
                     >
                         <a href="#projects" className="btn btn-primary">

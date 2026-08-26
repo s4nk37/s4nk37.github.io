@@ -16,6 +16,7 @@ const Experience = lazy(() => import('./components/Sections/Experience'));
 const Contact = lazy(() => import('./components/Sections/Contact'));
 const Articles = lazy(() => import('./components/Sections/Articles'));
 const ArticlesPage = lazy(() => import('./components/Pages/ArticlesPage'));
+const ProjectsPage = lazy(() => import('./components/Pages/ProjectsPage'));
 const NotFound = lazy(() => import('./components/Pages/NotFound'));
 
 function App() {
@@ -49,9 +50,8 @@ function App() {
             <main>
               <Hero />
               <Suspense fallback={<div style={{ height: '100vh' }} />}>
-                <Projects displayCategory="professional" />
+                <Projects />
                 <Skills />
-                <Projects displayCategory="personal" />
                 <Articles />
                 <Experience />
                 <About />
@@ -64,6 +64,11 @@ function App() {
         <Route path="/articles" element={
           <Suspense fallback={<Loader />}>
             <ArticlesPage theme={theme} toggleTheme={toggleTheme} />
+          </Suspense>
+        } />
+        <Route path="/projects" element={
+          <Suspense fallback={<Loader />}>
+            <ProjectsPage theme={theme} toggleTheme={toggleTheme} />
           </Suspense>
         } />
         <Route path="*" element={

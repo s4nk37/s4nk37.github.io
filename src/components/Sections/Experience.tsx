@@ -2,28 +2,34 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar } from 'lucide-react';
 
+interface ExperienceItem {
+    company: string;
+    role: string;
+    period: string;
+    location: string;
+    isCurrent?: boolean;
+}
+
 const Experience: React.FC = () => {
-    const experiences = [
+    const experiences: ExperienceItem[] = [
         {
             company: "Algorizz Technologies Pvt Ltd",
             role: "Software Engineer",
             period: "Dec 2025 - Present",
             location: "Remote, Bengaluru",
-            index: "01"
+            isCurrent: true
         },
         {
             company: "LesGo Global Pvt Ltd",
             role: "Software Development Engineer I",
             period: "Jan 2024 - Feb 2025",
-            location: "Remote, Bengaluru",
-            index: "02"
+            location: "Remote, Bengaluru"
         },
         {
             company: "Tecocraft Infusion Pvt Ltd",
             role: "Jr. Flutter Developer",
             period: "Aug 2023 - Nov 2023",
-            location: "Surat, Gujarat",
-            index: "03"
+            location: "Surat, Gujarat"
         }
     ];
 
@@ -48,100 +54,51 @@ const Experience: React.FC = () => {
                 <div style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '2rem',
+                    gap: '1rem',
                     position: 'relative'
                 }}>
                     {experiences.map((exp, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.2 }}
+                            transition={{ duration: 0.4, delay: idx * 0.1 }}
                             className="experience-card"
                         >
-
-                            {/* Left side - Role and Company */}
-                            <div style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '1.5rem'
-                            }}>
-                                <div style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    gap: '2rem',
-                                    flexWrap: 'wrap'
-                                }}>
-                                    <div style={{ minWidth: '260px' }}>
-                                        <div style={{
-                                            fontFamily: 'var(--font-mono)',
-                                            fontSize: '0.9rem',
-                                            letterSpacing: '0.4em',
-                                            color: 'var(--text-secondary)',
-                                            textTransform: 'uppercase',
-                                            marginBottom: '0.75rem'
-                                        }}>
-                                            {exp.index}
+                            <div className="experience-header">
+                                {/* Left Side: Role & Company */}
+                                <div className="experience-role-group">
+                                    <div>
+                                        <div className="experience-role-title">
+                                            <h3 className="experience-role">{exp.role}</h3>
+                                            {exp.isCurrent && (
+                                                <span className="experience-current-badge">
+                                                    <span className="experience-pulse-dot" /> Present
+                                                </span>
+                                            )}
                                         </div>
-                                        <h3 style={{
-                                            fontSize: '1.6rem',
-                                            fontWeight: 600,
-                                            color: 'var(--text-primary)',
-                                            marginBottom: '0.5rem',
-                                            lineHeight: 1.3
-                                        }}>
-                                            {exp.role}
-                                        </h3>
-                                        <p style={{
-                                            fontSize: '1rem',
-                                            letterSpacing: '0.08em',
-                                            textTransform: 'uppercase',
-                                            fontWeight: 600,
-                                            margin: 0,
-                                            color: 'var(--text-secondary)'
-                                        }}>
-                                            {exp.company}
-                                        </p>
-                                    </div>
-
-                                    {/* Right side - Date and Location */}
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        gap: '0.75rem',
-                                        minWidth: '200px'
-                                    }}>
-                                        <div style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '0.5rem',
-                                            color: 'var(--text-secondary)',
-                                            fontSize: '0.95rem'
-                                        }}>
-                                            <Calendar size={16} />
-                                            <span>{exp.period}</span>
-                                        </div>
-                                        <div style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '0.5rem',
-                                            color: 'var(--text-secondary)',
-                                            fontSize: '0.95rem'
-                                        }}>
-                                            <MapPin size={16} />
-                                            <span>{exp.location}</span>
-                                        </div>
+                                        <p className="experience-company">{exp.company}</p>
                                     </div>
                                 </div>
 
+                                {/* Right Side: Date and Location */}
+                                <div className="experience-meta">
+                                    <div className="experience-meta-item">
+                                        <Calendar size={14} color="var(--primary-color)" />
+                                        <span>{exp.period}</span>
+                                    </div>
+                                    <div className="experience-meta-item">
+                                        <MapPin size={14} color="var(--primary-color)" />
+                                        <span>{exp.location}</span>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-            </div >
-        </section >
+            </div>
+        </section>
     );
 };
 
