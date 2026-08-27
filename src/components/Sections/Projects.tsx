@@ -78,7 +78,7 @@ const Projects: React.FC = () => {
     };
 
     const renderProject = (project: Project, index: number) => {
-        const isFullWidth = index < 2; // Hubble Meet and LesGo are 1 full-width item each, Dandar Patient & Doctor are side-by-side in 2-column grid
+        const isFullWidth = index < 2; // Hubblemeet and LesGo are 1 full-width item each, Dandar Patient & Doctor are side-by-side in 2-column grid
 
         return (
             <div
@@ -107,7 +107,7 @@ const Projects: React.FC = () => {
                         <img
                             src={project.logo || project.image}
                             alt={`${project.title} logo`}
-                            className="project-logo"
+                            className={`project-logo ${project.logo ? 'project-logo-contain' : ''}`}
                         />
                     )}
                 </div>
@@ -158,7 +158,7 @@ const Projects: React.FC = () => {
     };
 
     return (
-        <section id="projects" className="section">
+        <section id="work" className="section">
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -176,7 +176,7 @@ const Projects: React.FC = () => {
                 >
                     <div className="section-title-block" style={{ marginBottom: 0 }}>
                         <h2 className="section-title">
-                            Projects
+                            Work
                         </h2>
                         <div className="section-title-underline" />
                     </div>

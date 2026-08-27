@@ -5,6 +5,7 @@ import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
 import Hero from './components/Sections/Hero';
 import Loader from './components/UI/Loader';
+import ScrollToTop from './components/UI/ScrollToTop';
 import SEO from './components/Utils/SEO';
 
 // Lazy load sections
@@ -38,6 +39,7 @@ function App() {
   return (
     <>
       <Loader />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={
           <div className="app">

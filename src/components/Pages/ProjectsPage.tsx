@@ -140,7 +140,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ theme, toggleTheme }) => {
                     <img
                         src={project.logo || project.image}
                         alt={`${project.title} logo`}
-                        className="project-logo"
+                        className={`project-logo ${project.logo ? 'project-logo-contain' : ''}`}
                     />
                 )}
             </div>

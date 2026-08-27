@@ -78,36 +78,25 @@ const Hero: React.FC = () => {
                         </div>
                     </motion.div>
 
-                    {/* Stat Highlight Badges with Count Animation & Rocket */}
+                    {/* Stat Highlights matching experience and address style */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.28 }}
-                        className="hero-badges"
+                        className="hero-meta"
+                        style={{ marginBottom: 'var(--spacing-md)' }}
                     >
-                        <div className="hero-badge">
-                            <motion.span
-                                animate={{
-                                    y: [0, -3, 0],
-                                    rotate: [0, 8, -4, 0]
-                                }}
-                                transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                style={{ display: 'inline-flex', alignItems: 'center' }}
-                            >
-                                <Rocket size={15} className="hero-badge-icon hero-rocket-icon" />
-                            </motion.span>
+                        <div className="hero-meta-item">
+                            <Rocket size={16} color="var(--primary-color)" />
                             <span>
-                                <strong style={{ color: 'var(--primary-color)' }}>
+                                <strong style={{ color: 'var(--primary-color)', fontWeight: 600 }}>
                                     <CountUp end={12} suffix="+" duration={1.8} />
                                 </strong> Apps Shipped
                             </span>
                         </div>
-                        <div className="hero-badge">
-                            <Zap size={14} className="hero-badge-icon" />
+                        <span className="hero-meta-separator">|</span>
+                        <div className="hero-meta-item">
+                            <Zap size={16} color="var(--primary-color)" />
                             <span>Flutter & React Native</span>
                         </div>
                     </motion.div>
@@ -118,11 +107,11 @@ const Hero: React.FC = () => {
                         transition={{ duration: 0.5, delay: 0.32 }}
                         style={{ display: 'flex', gap: '1rem' }}
                     >
-                        <a href="#projects" className="btn btn-primary">
-                            View Work <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+                        <a href="#work" className="btn btn-primary">
+                            Explore Apps <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
                         </a>
                         <a href="#contact" className="btn btn-outline">
-                            Contact Me <Mail size={18} style={{ marginLeft: '0.5rem' }} />
+                            Get in Touch <Mail size={18} style={{ marginLeft: '0.5rem' }} />
                         </a>
                     </motion.div>
                 </div>

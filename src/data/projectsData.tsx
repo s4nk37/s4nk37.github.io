@@ -17,7 +17,7 @@ export interface Project {
 
 export const projectsData: Project[] = [
     {
-        title: "Hubble Meet",
+        title: "Hubblemeet",
         description: <span>Cross-platform <strong style={{ color: 'var(--text-primary)' }}>professional networking</strong> application for iOS and Android.</span>,
         details: [
             <span>Built <strong style={{ color: 'var(--text-primary)' }}>native iOS widgets</strong> using Swift/WidgetKit and <strong style={{ color: 'var(--text-primary)' }}>Android widgets</strong> using Kotlin, synchronized with application state.</span>,
