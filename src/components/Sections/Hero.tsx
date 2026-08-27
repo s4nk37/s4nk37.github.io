@@ -89,9 +89,7 @@ const Hero: React.FC = () => {
                         <div className="hero-meta-item">
                             <Rocket size={16} color="var(--primary-color)" />
                             <span>
-                                <strong style={{ color: 'var(--primary-color)', fontWeight: 600 }}>
-                                    <CountUp end={12} suffix="+" duration={1.8} />
-                                </strong> Apps Shipped
+                                <CountUp end={12} suffix="+" duration={1.8} /> Apps Shipped
                             </span>
                         </div>
                         <span className="hero-meta-separator">|</span>

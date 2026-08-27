@@ -10,24 +10,25 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme }) => {
     return (
         <motion.button
             onClick={toggleTheme}
-            className="theme-toggle-btn"
+            className="theme-toggle-btn minimal-nav-icon-link"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Toggle Theme"
+            title={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
             style={{
                 background: 'transparent',
                 border: 'none',
                 cursor: 'pointer',
-                padding: '0.5rem',
+                padding: 0,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--header-icon-color)',
+                color: 'var(--text-secondary)',
             }}
         >
             {theme === 'dark' ? (
                 // Sun Icon for Dark Mode (switch to Light)
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -40,7 +41,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme }) => {
                 </svg>
             ) : (
                 // Moon Icon for Light Mode (switch to Dark)
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             )}

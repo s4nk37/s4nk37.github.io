@@ -26,8 +26,8 @@
     --accent-color: #000000;
     --border-color: rgba(0, 0, 0, 0.05);
     --icon-neutral: #1d1d1f;
-    --header-icon-color: #333333;
-    /* Dark Grey for Light Mode */
+    --header-icon-color: #86868b;
+    /* Grey for Light Mode */
 
     --gradient-primary: linear-gradient(135deg, #000000 0%, #333333 100%);
     --gradient-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
@@ -44,8 +44,8 @@
     --accent-color: #ffffff;
     --border-color: rgba(255, 255, 255, 0.1);
     --icon-neutral: #f5f5f7;
-    --header-icon-color: #a3a3a3;
-    /* Light Grey for Dark Mode */
+    --header-icon-color: #86868b;
+    /* Grey for Dark Mode */
 
     --gradient-primary: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
     --gradient-surface: linear-gradient(180deg, rgba(28, 28, 30, 0.8) 0%, rgba(28, 28, 30, 0.4) 100%);
@@ -688,14 +688,12 @@ button {
 
     #home {
         min-height: 100vh !important;
-        padding-top: 0.5rem !important;
-        padding-bottom: 1rem !important;
+        padding-top: 3.5rem !important;
+        padding-bottom: 1.5rem !important;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
-
-
 
     /* Reduce spacing between sections on mobile */
     .section {
@@ -713,11 +711,11 @@ button {
     }
 
     #home {
-        padding-top: 0.25rem !important;
+        padding-top: 3.25rem !important;
     }
 
     .hero-visual {
-        margin-top: -2rem;
+        margin-top: 0.25rem;
     }
 
     .hero-content {
