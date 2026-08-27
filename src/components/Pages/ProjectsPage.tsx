@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Globe, ArrowUp, ArrowLeft } from 'lucide-react';
+import { ExternalLink, Globe } from 'lucide-react';
 import { FaGooglePlay, FaAppStoreIos } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
 import SEO from '../Utils/SEO';
@@ -14,28 +13,11 @@ interface ProjectsPageProps {
 }
 
 const ProjectsPage: React.FC<ProjectsPageProps> = ({ theme, toggleTheme }) => {
-    const navigate = useNavigate();
     const [selectedCategory, setSelectedCategory] = useState<'all' | 'professional' | 'personal'>('all');
-    const [showScrollTop, setShowScrollTop] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setShowScrollTop(window.scrollY > 300);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
 
     const filteredProjects = selectedCategory === 'all'
         ? projectsData
@@ -200,21 +182,6 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ theme, toggleTheme }) => {
 
             <main style={{ paddingTop: '100px', minHeight: '80vh' }}>
                 <div className="container" style={{ paddingBottom: '4rem' }}>
-                    {/* Top Navigation / Breadcrumb */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
-                        style={{ marginBottom: '2rem' }}
-                    >
-                        <button
-                            onClick={() => navigate('/')}
-                            className="btn btn-outline"
-                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', fontSize: '0.9rem' }}
-                        >
-                            <ArrowLeft size={16} /> Back to Home
-                        </button>
-                    </motion.div>
 
                     {/* Header */}
                     <motion.div
@@ -285,16 +252,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ theme, toggleTheme }) => {
 
             <Footer />
 
-            {/* Scroll to Top Button */}
-            {showScrollTop && (
-                <button
-                    onClick={scrollToTop}
-                    className="scroll-to-top"
-                    aria-label="Scroll to top"
-                >
-                    <ArrowUp size={20} />
-                </button>
-            )}
+
         </div>
     );
 };

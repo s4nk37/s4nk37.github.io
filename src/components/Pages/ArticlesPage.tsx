@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, Clock, ArrowUp } from 'lucide-react';
+import { ExternalLink, Calendar, Clock } from 'lucide-react';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
 import { fetchMediumArticles, type Article } from '../../services/medium';
@@ -71,28 +71,10 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ theme, toggleTheme }) => {
         loadArticles();
     }, []);
 
-    const [showScrollTop, setShowScrollTop] = useState(false);
-
     // Scroll to top when page loads
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setShowScrollTop(window.scrollY > 300);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
 
     return (
         <div className="app">
@@ -191,19 +173,6 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ theme, toggleTheme }) => {
             </main>
             <Footer />
 
-            {/* Scroll to Top Button */}
-            {showScrollTop && (
-                <motion.button
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    onClick={scrollToTop}
-                    className="scroll-to-top"
-                    aria-label="Scroll to top"
-                >
-                    <ArrowUp size={24} />
-                </motion.button>
-            )}
         </div>
     );
 };

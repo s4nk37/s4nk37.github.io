@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ThemeToggle from '../UI/ThemeToggle';
 
 interface NavbarProps {
@@ -23,21 +24,21 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, simplified = false 
 
     return (
         <motion.header
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={{ x: '-50%', y: -40, opacity: 0 }}
+            animate={{ x: '-50%', y: 0, opacity: 1 }}
             transition={{ duration: 0.4 }}
             className={`minimal-nav ${isScrolled ? 'scrolled' : ''}`}
         >
             <div className="minimal-nav-container">
                 {/* Left Side: Back link only on subpages */}
-                <div className="minimal-nav-left">
-                    {simplified && (
-                        <a href="/" className="minimal-nav-back">
+                {simplified && (
+                    <div className="minimal-nav-left">
+                        <Link to="/" className="minimal-nav-back">
                             <ArrowLeft size={16} />
                             <span>Home</span>
-                        </a>
-                    )}
-                </div>
+                        </Link>
+                    </div>
+                )}
 
                 {/* Right Side: Social Links & Theme Toggle */}
                 <div className="minimal-nav-right">
